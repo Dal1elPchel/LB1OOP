@@ -12,30 +12,50 @@ namespace LB1OOP
 {
     public partial class Change_Form: Form
     {
-        private Main_Form _form2;
-        private Provider editprovider;
+        private Provider editProvider;
 
         public Change_Form(Provider provider)
         {
             InitializeComponent();
-            editprovider = provider;
+            editProvider = provider;
+            DisplayProviderInfo();
         }
 
-        private void Change_Form_Load(object sender, EventArgs e)
+        private void DisplayProviderInfo()
         {
+
+            NameTextBox.Text = editProvider.ToString();
+            userCountTextBox.Text = editProvider.UserCount.ToString();
+            speedLimitTextBox.Text = editProvider.SpeedLimit.ToString();
+            areaTextBox.Text = editProvider.Area.ToString();
+            contractNumberTextBox.Text = editProvider.ContractNumber.ToString();
+            tarifNameTextBox.Text = editProvider.TarifName.ToString();
+            tarifCoastTextBox.Text = editProvider.TarifCoast.ToString();
 
         }
 
         private void back_button_Click(object sender, EventArgs e)
         {
-            _form2.Show();
-            this.Hide();
+            this.Close();
         }
 
         private void save_button_Click(object sender, EventArgs e)
         {
-            _form2.Show();
-            this.Hide();
+            try
+            {
+                editProvider.Name = NameTextBox.Text;
+                editProvider.UserCount = int.Parse(userCountTextBox.Text);
+                editProvider.SpeedLimit = float.Parse(speedLimitTextBox.Text);
+                editProvider.Area = float.Parse(areaTextBox.Text);
+                editProvider.ContractNumber = int.Parse(contractNumberTextBox.Text);
+                editProvider.TarifName = tarifNameTextBox.Text;
+                editProvider.TarifCoast = float.Parse(tarifCoastTextBox.Text);
+            } catch (Exception ex)
+            {
+                    MessageBox.Show(ex.Message);
+            }
+
+            this.Close();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -44,10 +64,7 @@ namespace LB1OOP
 
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                e.Cancel = true;
-                this.Hide();
-
-                Application.Exit();
+                
             }
         }
     }

@@ -227,6 +227,24 @@ namespace LB1OOP
         public string GetUserCountInHex() => this.UserCount.ToString("X");
 
         /// <summary>
+        /// Вычисляет плотность абонентов на квадратный километр.
+        /// </summary>
+        /// <returns>Количество абонентов на кв. км.</returns>
+        /// <exception cref="CustomDivideByZeroException">
+        /// Выбрасывается при попытке деления на ноль (когда площадь покрытия равна 0).
+        /// </exception>
+        public float CalculateUserDensity()
+        {
+            if (this.Area == 0)
+            {
+                throw new CustomDivideByZeroException(
+                    $"Невозможно вычислить плотность абонентов: у провайдера {this.Name} нет зоны покрытия");
+            }
+
+            return this.UserCount / this.Area;
+        }
+
+        /// <summary>
         /// Возвращает строковое представление объекта провайдера.
         /// </summary>
         /// <returns>Строка, содержащая имя провайдера.</returns>

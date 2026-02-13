@@ -10,18 +10,18 @@ namespace LB1OOP
     /// Представляет исключение, возникающее при попытке деления на ноль.
     /// Переопределенное наследование от DivideByZeroException.
     /// </summary>
-    class CustomDivideByZeroException : DivideByZeroException
+    public class CustomDivideByZeroException : DivideByZeroException
     {
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="CustomDivideByZeroException"/>.
         /// </summary>
-        CustomDivideByZeroException() : base() { }
+        public CustomDivideByZeroException() : base() { }
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="CustomDivideByZeroException"/> с указанным сообщением об ошибке.
         /// </summary>
         /// <param name="message">Сообщение, описывающее ошибку.</param>
-        CustomDivideByZeroException(string message) : base(message) { }
+        public CustomDivideByZeroException(string message) : base(message) { }
 
         /// <summary>
         /// Возвращает строковое представление исключения.

@@ -53,9 +53,23 @@ namespace LB1OOP
             if (e.CloseReason == CloseReason.UserClosing)
             {
                 e.Cancel = true;
-                this.Close();
-
                 Application.Exit();
+            }
+        }
+
+        private void btnTestException_Click_1(object sender, EventArgs e)
+        {
+            try
+            {
+                
+
+                float result = provider.CalculateUserDensity();
+
+                MessageBox.Show($"Результат: {result}");
+            }
+            catch (CustomDivideByZeroException ex)
+            {
+                MessageBox.Show(ex.ToString());
             }
         }
     }

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.13.35825.156 d17.13
+VisualStudioVersion = 17.13.35825.156
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LB1OOP", "LB1OOP\LB1OOP.csproj", "{02E1ABB2-D310-47AA-B306-342F60E34D68}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LB1OOP.Tests", "LB1OOP.Tests\LB1OOP.Tests.csproj", "{1E30BCF2-B9C3-4D75-A8EB-1A2584B4D9C4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{02E1ABB2-D310-47AA-B306-342F60E34D68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02E1ABB2-D310-47AA-B306-342F60E34D68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02E1ABB2-D310-47AA-B306-342F60E34D68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1E30BCF2-B9C3-4D75-A8EB-1A2584B4D9C4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1E30BCF2-B9C3-4D75-A8EB-1A2584B4D9C4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1E30BCF2-B9C3-4D75-A8EB-1A2584B4D9C4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1E30BCF2-B9C3-4D75-A8EB-1A2584B4D9C4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

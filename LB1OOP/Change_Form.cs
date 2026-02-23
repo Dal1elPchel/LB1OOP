@@ -24,7 +24,7 @@ namespace LB1OOP
         private void DisplayProviderInfo()
         {
 
-            NameTextBox.Text = editProvider.ToString();
+            NameTextBox.Text = editProvider.Name;
             userCountTextBox.Text = editProvider.UserCount.ToString();
             speedLimitTextBox.Text = editProvider.SpeedLimit.ToString();
             areaTextBox.Text = editProvider.Area.ToString();
@@ -50,12 +50,13 @@ namespace LB1OOP
                 editProvider.ContractNumber = int.Parse(contractNumberTextBox.Text);
                 editProvider.TarifName = tarifNameTextBox.Text;
                 editProvider.TarifCoast = float.Parse(tarifCoastTextBox.Text);
+                this.DialogResult = DialogResult.OK;
+                this.Close();
             } catch (Exception ex)
             {
                     MessageBox.Show(ex.Message);
             }
-
-            this.Close();
+           
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

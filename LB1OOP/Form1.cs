@@ -13,12 +13,12 @@ namespace LB1OOP
     public partial class Hello_Form: Form
     {
         private Main_Form _form2;
+        private ProviderCollection _collection = new ProviderCollection();
 
         public Hello_Form()
         {
             InitializeComponent();
             _form2 = new Main_Form();
-
         }
 
         private void button1_Click(object sender, EventArgs e)

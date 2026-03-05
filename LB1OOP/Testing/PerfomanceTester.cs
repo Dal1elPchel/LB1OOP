@@ -16,7 +16,7 @@ namespace LB1OOP
             var results = new TestResults();
             var dataList = GenerateData(Count);
 
-            var list = new List<Provider>();
+            var list = new List<InternetProvider>();
             var sw = Stopwatch.StartNew();
             foreach (var p in dataList) list.Add(p);
             sw.Stop();
@@ -38,7 +38,7 @@ namespace LB1OOP
             sw.Stop();
             results.ListRandomReadTime = sw.ElapsedMilliseconds;
 
-            var array = new Provider[Count];
+            var array = new InternetProvider[Count];
             sw.Restart();
             for (int i = 0; i < Count; i++) array[i] = dataList[i];
             sw.Stop();
@@ -61,9 +61,9 @@ namespace LB1OOP
             return results;
         }
 
-        private static List<Provider> GenerateData(int count)
+        private static List<InternetProvider> GenerateData(int count)
         {
-            var list = new List<Provider>();
+            var list = new List<InternetProvider>();
             var rand = new Random();
 
             for (int i = 0; i < count; i++)
@@ -76,7 +76,7 @@ namespace LB1OOP
                 int contract = 100_000_000 + i;
                 string tarif = $"Tarif_{i % 10}";
 
-                list.Add(new Provider(name, cost, users, speed, area, contract, tarif));
+                list.Add(new InternetProvider(name, cost, users, speed, area, contract, tarif));
             }
             return list;
         }

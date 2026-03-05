@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LB1OOP.Factories;
+using LB1OOP.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,7 +18,7 @@ namespace LB1OOP
     public partial class Hello_Form : Form
     {
         private Main_Form _form2;
-        private ProviderCollection _collection = new ProviderCollection();
+        private IProviderFactory _factory = new DefaultProviderFactory();
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="Hello_Form"/>.
@@ -25,7 +27,7 @@ namespace LB1OOP
         public Hello_Form()
         {
             InitializeComponent();
-            _form2 = new Main_Form();
+            _form2 = new Main_Form(_factory);
         }
 
         /// <summary>

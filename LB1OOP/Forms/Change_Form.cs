@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LB1OOP.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +13,17 @@ namespace LB1OOP
 {
     /// <summary>
     /// Форма для редактирования информации о провайдере.
-    /// Позволяет изменять все свойства объекта <see cref="Provider"/>.
+    /// Позволяет изменять все свойства объекта <see cref="InternetProvider"/>.
     /// </summary>
     public partial class Change_Form : Form
     {
-        private Provider editProvider;
+        private IProvider editProvider;
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="Change_Form"/>.
         /// </summary>
         /// <param name="provider">Объект провайдера для редактирования.</param>
-        public Change_Form(Provider provider)
+        public Change_Form(IProvider provider)
         {
             InitializeComponent();
             editProvider = provider;

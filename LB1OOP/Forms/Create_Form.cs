@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LB1OOP.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,10 +13,12 @@ namespace LB1OOP
 {
     public partial class Create_Form : Form
     {
-        public Provider CreatedProvider { get; private set; }
-        public Create_Form()
+        private readonly IProviderFactory _factory;
+        public IProvider CreatedProvider { get; private set; }
+        public Create_Form(IProviderFactory factory)
         {
             InitializeComponent();
+            _factory = factory;
             DisplayProviderInfo();
         }
         private void DisplayProviderInfo()
@@ -43,7 +46,7 @@ namespace LB1OOP
                 string tarif = tarifNameTextBox.Text;
                 float tarifCoast = float.Parse(tarifCoastTextBox.Text);
 
-                CreatedProvider = new Provider(name, tarifCoast, userCount, speedLimit, area, contract, tarif);
+                CreatedProvider = _factory.CreateProvider(name, tarifCoast, userCount, speedLimit, area, contract, tarif);
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

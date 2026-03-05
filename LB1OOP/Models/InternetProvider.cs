@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LB1OOP.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace LB1OOP
     /// <summary>
     /// Представляет интернет-провайдера с информацией о тарифном плане и абонентах.
     /// </summary>
-    public class Provider
+    public class InternetProvider : IProvider
     {
         private int _userCount;
         private float _speedLimit;
@@ -126,12 +127,12 @@ namespace LB1OOP
             }
         }
 
-        private static LinkedList<Provider> _providerCount = new LinkedList<Provider>();
+        private static LinkedList<InternetProvider> _providerCount = new LinkedList<InternetProvider>();
 
         /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="Provider"/> со значениями по умолчанию.
+        /// Инициализирует новый экземпляр класса <see cref="InternetProvider"/> со значениями по умолчанию.
         /// </summary>
-        public Provider()
+        public InternetProvider()
         {
             this._userCount = 0;
             this._speedLimit = 0;
@@ -145,11 +146,11 @@ namespace LB1OOP
         }
 
         /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="Provider"/> с указанным названием.
+        /// Инициализирует новый экземпляр класса <see cref="InternetProvider"/> с указанным названием.
         /// </summary>
         /// <param name="name">Название провайдера.</param>
         /// <exception cref="ArgumentException">Выбрасывается при пустом значении параметра.</exception>
-        public Provider(string name = "Undefined")
+        public InternetProvider(string name = "Undefined")
         {
             Validator.ValidateName(name);
 
@@ -165,12 +166,12 @@ namespace LB1OOP
         }
 
         /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="Provider"/> с указанным названием и стоимостью тарифа.
+        /// Инициализирует новый экземпляр класса <see cref="InternetProvider"/> с указанным названием и стоимостью тарифа.
         /// </summary>
         /// <param name="name">Название провайдера.</param>
         /// <param name="tarifCoast">Стоимость тарифного плана.</param>
         /// <exception cref="ArgumentException">Выбрасывается при некорректных значениях параметров.</exception>
-        public Provider(string name = "Undefined", float tarifCoast = 0)
+        public InternetProvider(string name = "Undefined", float tarifCoast = 0)
         {
             Validator.ValidateName(name);
             Validator.ValidateTarifCoast(tarifCoast);
@@ -187,7 +188,7 @@ namespace LB1OOP
         }
 
         /// <summary>
-        /// Инициализирует новый экземпляр класса <see cref="Provider"/> с полным набором параметров.
+        /// Инициализирует новый экземпляр класса <see cref="InternetProvider"/> с полным набором параметров.
         /// </summary>
         /// <param name="name">Название провайдера.</param>
         /// <param name="tarifCoast">Стоимость тарифного плана.</param>
@@ -197,7 +198,7 @@ namespace LB1OOP
         /// <param name="contractNumber">Номер договора.</param>
         /// <param name="tarifName">Название тарифа.</param>
         /// <exception cref="ArgumentException">Выбрасывается при некорректных значениях параметров.</exception>
-        public Provider(string name = "Undefined", float tarifCoast = 0,
+        public InternetProvider(string name = "Undefined", float tarifCoast = 0,
             int userCount = 0, float speedLimit = 0, float area = 0,
             int contractNumber = 0, string tarifName = "Undefined")
         {
@@ -257,6 +258,6 @@ namespace LB1OOP
         /// Добавляет провайдера в статический список всех созданных экземпляров.
         /// </summary>
         /// <param name="provider">Добавляемый провайдер.</param>
-        private static void AddNewProvider(Provider provider) => _providerCount.AddLast(provider);
+        private static void AddNewProvider(InternetProvider provider) => _providerCount.AddLast(provider);
     }
 }

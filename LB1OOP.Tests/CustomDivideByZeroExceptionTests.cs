@@ -7,13 +7,13 @@ namespace LB1OOP.Tests;
 public class CustomDivideByZeroExceptionTests
 {
     /// <summary>
-    /// Проверяет, что метод <see cref="Provider.CalculateUserDensity"/> выбрасывает исключение 
+    /// Проверяет, что метод <see cref="InternetProvider.CalculateUserDensity"/> выбрасывает исключение 
     /// <see cref="CustomDivideByZeroException"/> при попытке вычисления плотности с нулевой площадью покрытия.
     /// </summary>
     [TestMethod]
     public void CalculateUserDensity_AreaZero_ThrowsCustomException()
     {
-        Provider provider = new Provider("Тест");
+        InternetProvider provider = new InternetProvider("Тест");
         provider.Area = 0;
         provider.UserCount = 100;
 

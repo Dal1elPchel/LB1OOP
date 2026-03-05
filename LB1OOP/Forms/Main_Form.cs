@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LB1OOP.Factories;
+using LB1OOP.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,13 +20,17 @@ namespace LB1OOP
         private Create_Form create_Form;
         private Change_Form change_Form;
 
-        private Provider _provider;
-        private ProviderCollection _collection;
+        private IProviderFactory _providerFactory;
+        private IProvider _provider;
+        private IProviderCollection _collection;
 
-        public Main_Form()
+        public Main_Form(IProviderFactory factory)
         {
             InitializeComponent();
-            _collection = new ProviderCollection();
+
+            _providerFactory = factory;
+            _collection = _providerFactory.CreateProviderCollection();
+
             _collection.providerAdded += (p, action) =>
             {
                 listBoxProviders.Items.Add(p.Name);
@@ -32,6 +38,7 @@ namespace LB1OOP
                 string log = $"[{DateTime.Now:HH:mm:ss}] {action}: {p.Name} (Тариф: {p.TarifName})";
                 listBoxEvents.Items.Add(log);
             };
+
             _collection.providerRemoved += (p, action) =>
             {
                 if (listBoxProviders.Items.Contains(p.Name))
@@ -46,7 +53,8 @@ namespace LB1OOP
                     _provider = null;
                 }
             };
-            _provider = new Provider("МТС");
+
+            _provider = _providerFactory.CreateProviderWithName("МТС");
             _collection.AddProvider(_provider);
 
             DisplayProviderInfo();
@@ -150,12 +158,12 @@ namespace LB1OOP
 
         private void add_button_Click(object sender, EventArgs e)
         {
-            using (Create_Form form = new Create_Form())
+            using (Create_Form form = new Create_Form(_providerFactory))
             {
                 DialogResult result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    Provider newProvider = form.CreatedProvider;
+                    IProvider newProvider = form.CreatedProvider;
                     if (newProvider != null)
                     {
                         _collection.AddProvider(newProvider);

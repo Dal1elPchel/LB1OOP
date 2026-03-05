@@ -3,7 +3,7 @@
 namespace LB1OOP.Tests
 {
     /// <summary>
-    /// Содержит модульные тесты для проверки функциональности класса <see cref="Provider"/>.
+    /// Содержит модульные тесты для проверки функциональности класса <see cref="InternetProvider"/>.
     /// </summary>
     [TestClass]
     public sealed class ProviderTests
@@ -14,7 +14,7 @@ namespace LB1OOP.Tests
         [TestMethod]
         public void Constructor()
         {
-            Provider provider = new Provider();
+            InternetProvider provider = new InternetProvider();
 
             Assert.AreEqual("Undefined", provider.Name);
             Assert.AreEqual(0, provider.UserCount);
@@ -31,7 +31,7 @@ namespace LB1OOP.Tests
         [TestMethod]
         public void Constructor_WithOneParam()
         {
-            Provider provider = new Provider("МТС");
+            InternetProvider provider = new InternetProvider("МТС");
 
             Assert.AreEqual("МТС", provider.Name);
         }
@@ -42,7 +42,7 @@ namespace LB1OOP.Tests
         [TestMethod]
         public void Constructor_WithAllParameters()
         {
-            Provider provider = new Provider(
+            InternetProvider provider = new InternetProvider(
                 name: "Ростелеком",
                 tarifCoast: 500,
                 userCount: 1000,
@@ -62,13 +62,13 @@ namespace LB1OOP.Tests
         }
 
         /// <summary>
-        /// Проверяет, что метод <see cref="Provider.GetUserCountInHex"/> 
+        /// Проверяет, что метод <see cref="InternetProvider.GetUserCountInHex"/> 
         /// правильно преобразует количество абонентов в шестнадцатеричный формат.
         /// </summary>
         [TestMethod]
         public void GetUserCountInHex()
         {
-            Provider provider = new Provider();
+            InternetProvider provider = new InternetProvider();
             provider.UserCount = 255;
 
             string result = provider.GetUserCountInHex();
@@ -77,62 +77,62 @@ namespace LB1OOP.Tests
         }
 
         /// <summary>
-        /// Проверяет, что метод <see cref="Provider.ToString"/> возвращает имя провайдера.
+        /// Проверяет, что метод <see cref="InternetProvider.ToString"/> возвращает имя провайдера.
         /// </summary>
         [TestMethod]
         public void ToString_ReturnsName()
         {
-            Provider provider = new Provider("Мегафон");
+            InternetProvider provider = new InternetProvider("Мегафон");
 
             string result = provider.ToString();
             Assert.AreEqual("Мегафон", result);
         }
 
         /// <summary>
-        /// Проверяет, что при установке отрицательного значения свойству <see cref="Provider.UserCount"/>
+        /// Проверяет, что при установке отрицательного значения свойству <see cref="InternetProvider.UserCount"/>
         /// выбрасывается исключение <see cref="ArgumentOutOfRangeException"/>.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void UserCount_NegativeValue_ThrowsException()
         {
-            Provider provider = new Provider();
+            InternetProvider provider = new InternetProvider();
             provider.UserCount = -1;
         }
 
         /// <summary>
-        /// Проверяет, что при установке отрицательного значения свойству <see cref="Provider.TarifCoast"/>
+        /// Проверяет, что при установке отрицательного значения свойству <see cref="InternetProvider.TarifCoast"/>
         /// выбрасывается исключение <see cref="ArgumentOutOfRangeException"/>.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TarifCoast_NegativeValue_ThrowsException()
         {
-            Provider provider = new Provider();
+            InternetProvider provider = new InternetProvider();
             provider.TarifCoast = -10;
         }
 
         /// <summary>
-        /// Проверяет, что при установке пустой строки свойству <see cref="Provider.Name"/>
+        /// Проверяет, что при установке пустой строки свойству <see cref="InternetProvider.Name"/>
         /// выбрасывается исключение <see cref="ArgumentException"/>.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void Name_EmptyString_ThrowsException()
         {
-            Provider provider = new Provider();
+            InternetProvider provider = new InternetProvider();
             provider.Name = "";
         }
 
         /// <summary>
-        /// Проверяет, что при установке слишком короткого имени свойству <see cref="Provider.Name"/>
+        /// Проверяет, что при установке слишком короткого имени свойству <see cref="InternetProvider.Name"/>
         /// выбрасывается исключение <see cref="ArgumentException"/>.
         /// </summary>
         [TestMethod]
         [ExpectedException(typeof(ArgumentException))]
         public void Name_TooShort_ThrowsException()
         {
-            Provider provider = new Provider();
+            InternetProvider provider = new InternetProvider();
             provider.Name = "A";
         }
     }

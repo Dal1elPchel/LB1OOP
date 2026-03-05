@@ -10,10 +10,18 @@ using System.Windows.Forms;
 
 namespace LB1OOP
 {
-    public partial class Change_Form: Form
+    /// <summary>
+    /// Форма для редактирования информации о провайдере.
+    /// Позволяет изменять все свойства объекта <see cref="Provider"/>.
+    /// </summary>
+    public partial class Change_Form : Form
     {
         private Provider editProvider;
 
+        /// <summary>
+        /// Инициализирует новый экземпляр класса <see cref="Change_Form"/>.
+        /// </summary>
+        /// <param name="provider">Объект провайдера для редактирования.</param>
         public Change_Form(Provider provider)
         {
             InitializeComponent();
@@ -21,9 +29,11 @@ namespace LB1OOP
             DisplayProviderInfo();
         }
 
+        /// <summary>
+        /// Отображает текущую информацию о провайдере в текстовых полях формы.
+        /// </summary>
         private void DisplayProviderInfo()
         {
-
             NameTextBox.Text = editProvider.ToString();
             userCountTextBox.Text = editProvider.UserCount.ToString();
             speedLimitTextBox.Text = editProvider.SpeedLimit.ToString();
@@ -31,14 +41,25 @@ namespace LB1OOP
             contractNumberTextBox.Text = editProvider.ContractNumber.ToString();
             tarifNameTextBox.Text = editProvider.TarifName.ToString();
             tarifCoastTextBox.Text = editProvider.TarifCoast.ToString();
-
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие кнопки "Назад".
+        /// Закрывает текущую форму без сохранения изменений.
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Объект <see cref="EventArgs"/>, содержащий данные события.</param>
         private void back_button_Click(object sender, EventArgs e)
         {
             this.Close();
         }
 
+        /// <summary>
+        /// Обрабатывает нажатие кнопки "Сохранить".
+        /// Сохраняет изменения в объекте провайдера и закрывает форму.
+        /// </summary>
+        /// <param name="sender">Источник события.</param>
+        /// <param name="e">Объект <see cref="EventArgs"/>, содержащий данные события.</param>
         private void save_button_Click(object sender, EventArgs e)
         {
             try
@@ -50,22 +71,32 @@ namespace LB1OOP
                 editProvider.ContractNumber = int.Parse(contractNumberTextBox.Text);
                 editProvider.TarifName = tarifNameTextBox.Text;
                 editProvider.TarifCoast = float.Parse(tarifCoastTextBox.Text);
-            } catch (Exception ex)
+            }
+            catch (FormatException ex)
             {
-                    MessageBox.Show(ex.Message);
+                MessageBox.Show($"Ошибка формата данных: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Ошибка при сохранении: {ex.Message}", "Ошибка",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
 
             this.Close();
         }
 
+        /// <summary>
+        /// Обрабатывает событие закрытия формы.
+        /// </summary>
+        /// <param name="e">Объект <see cref="FormClosingEventArgs"/>, содержащий данные события.</param>
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             base.OnFormClosing(e);
 
-            if (e.CloseReason == CloseReason.UserClosing)
-            {
-                
-            }
+            if (e.CloseReason == CloseReason.UserClosing) { }
         }
     }
 }

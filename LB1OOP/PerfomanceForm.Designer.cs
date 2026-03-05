@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
-            this.run_button = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.run_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -41,23 +41,15 @@
             this.columnHeader1,
             this.columnHeader2,
             this.columnHeader3});
+            this.listView1.Dock = System.Windows.Forms.DockStyle.Top;
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(27, 43);
+            this.listView1.Location = new System.Drawing.Point(0, 0);
+            this.listView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(682, 255);
+            this.listView1.Size = new System.Drawing.Size(600, 208);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // run_button
-            // 
-            this.run_button.Location = new System.Drawing.Point(272, 328);
-            this.run_button.Name = "run_button";
-            this.run_button.Size = new System.Drawing.Size(169, 47);
-            this.run_button.TabIndex = 1;
-            this.run_button.Text = "Запустить тест";
-            this.run_button.UseVisualStyleBackColor = true;
-            this.run_button.Click += new System.EventHandler(this.run_button_Click);
             // 
             // columnHeader1
             // 
@@ -74,16 +66,38 @@
             this.columnHeader3.Text = "Array (мс)";
             this.columnHeader3.Width = 100;
             // 
+            // run_button
+            // 
+            this.run_button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.run_button.AutoSize = true;
+            this.run_button.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.run_button.Location = new System.Drawing.Point(204, 281);
+            this.run_button.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.run_button.MaximumSize = new System.Drawing.Size(100, 100);
+            this.run_button.MinimumSize = new System.Drawing.Size(94, 23);
+            this.run_button.Name = "run_button";
+            this.run_button.Size = new System.Drawing.Size(94, 23);
+            this.run_button.TabIndex = 1;
+            this.run_button.Text = "Запустить тест";
+            this.run_button.UseVisualStyleBackColor = true;
+            this.run_button.Click += new System.EventHandler(this.run_button_Click);
+            // 
             // PerfomanceForm
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.AutoScroll = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.run_button);
             this.Controls.Add(this.listView1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximumSize = new System.Drawing.Size(1000, 1000);
+            this.MinimumSize = new System.Drawing.Size(616, 405);
             this.Name = "PerfomanceForm";
             this.Text = "PerfomanceForm";
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 

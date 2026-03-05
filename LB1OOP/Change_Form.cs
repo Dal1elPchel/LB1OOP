@@ -34,7 +34,8 @@ namespace LB1OOP
         /// </summary>
         private void DisplayProviderInfo()
         {
-            NameTextBox.Text = editProvider.ToString();
+
+            NameTextBox.Text = editProvider.Name;
             userCountTextBox.Text = editProvider.UserCount.ToString();
             speedLimitTextBox.Text = editProvider.SpeedLimit.ToString();
             areaTextBox.Text = editProvider.Area.ToString();
@@ -71,21 +72,13 @@ namespace LB1OOP
                 editProvider.ContractNumber = int.Parse(contractNumberTextBox.Text);
                 editProvider.TarifName = tarifNameTextBox.Text;
                 editProvider.TarifCoast = float.Parse(tarifCoastTextBox.Text);
-            }
-            catch (FormatException ex)
+                this.DialogResult = DialogResult.OK;
+                this.Close();
+            } catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка формата данных: {ex.Message}", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
+                    MessageBox.Show(ex.Message);
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"Ошибка при сохранении: {ex.Message}", "Ошибка",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-
-            this.Close();
+           
         }
 
         /// <summary>
@@ -96,7 +89,10 @@ namespace LB1OOP
         {
             base.OnFormClosing(e);
 
-            if (e.CloseReason == CloseReason.UserClosing) { }
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                
+            }
         }
     }
 }

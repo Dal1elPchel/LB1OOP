@@ -16,6 +16,7 @@ namespace LB1OOP
     public partial class Hello_Form : Form
     {
         private Main_Form _form2;
+        private ProviderCollection _collection = new ProviderCollection();
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="Hello_Form"/>.

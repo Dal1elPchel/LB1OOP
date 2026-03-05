@@ -176,27 +176,39 @@ namespace LB1OOP
 
         private void remove_button_Click(object sender, EventArgs e)
         {
-            if (listBoxProviders.SelectedItems == null)
+            try
             {
-                MessageBox.Show("Выберите провайдера для удаления!");
-                return;
-            }
-
-            string selectedName = listBoxProviders.SelectedItem.ToString();
-
-            var providerToRemove = _collection.GetAll().FirstOrDefault(p => p.Name == selectedName);
-
-            var result = MessageBox.Show($"Удалить провайдера \"{selectedName}\"?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
-                _collection.RemoveProvider(providerToRemove);
-
-                if (_provider == providerToRemove)
+                if (listBoxProviders.SelectedItems == null)
                 {
-                    _provider = null;
+                    MessageBox.Show("Выберите провайдера для удаления!");
+                    return;
+                }
+
+                string selectedName = listBoxProviders.SelectedItem.ToString();
+
+                var providerToRemove = _collection.GetAll().FirstOrDefault(p => p.Name == selectedName);
+
+                var result = MessageBox.Show($"Удалить провайдера \"{selectedName}\"?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+                if (result == DialogResult.Yes)
+                {
+                    _collection.RemoveProvider(providerToRemove);
+
+                    if (_provider == providerToRemove)
+                    {
+                        _provider = null;
+                    }
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            catch
+            {
+                MessageBox.Show("Underfined type of exception!");
+            }
+            
         }
         private void listBoxProviders_SelectedIndexChanged(object sender, EventArgs e)
         {

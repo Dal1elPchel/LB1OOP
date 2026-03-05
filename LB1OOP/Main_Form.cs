@@ -193,7 +193,7 @@ namespace LB1OOP
         private void listBoxProviders_SelectedIndexChanged(object sender, EventArgs e)
         {
 
-            if (listBoxProviders.SelectedItems == null)
+            if (listBoxProviders.SelectedItem == null)
             {
                 _provider = null;
                 return;

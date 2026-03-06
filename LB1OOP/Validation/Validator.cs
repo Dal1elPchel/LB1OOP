@@ -11,6 +11,14 @@ namespace LB1OOP
     /// </summary>
     public static class Validator
     {
+        public static InternetProvider InternetProvider
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// Проверяет корректность названия провайдера.
         /// </summary>

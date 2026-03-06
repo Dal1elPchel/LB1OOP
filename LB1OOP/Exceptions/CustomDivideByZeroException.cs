@@ -23,6 +23,14 @@ namespace LB1OOP
         /// <param name="message">Сообщение, описывающее ошибку.</param>
         public CustomDivideByZeroException(string message) : base(message) { }
 
+        public InternetProvider InternetProvider
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         /// <summary>
         /// Возвращает строковое представление исключения.
         /// </summary>

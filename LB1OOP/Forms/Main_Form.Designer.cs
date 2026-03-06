@@ -210,6 +210,7 @@
             // 
             // change_button
             // 
+            this.change_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.change_button.Location = new System.Drawing.Point(58, 388);
             this.change_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.change_button.Name = "change_button";
@@ -221,6 +222,7 @@
             // 
             // ExitButton
             // 
+            this.ExitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.ExitButton.Location = new System.Drawing.Point(218, 528);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ExitButton.Name = "ExitButton";
@@ -232,6 +234,7 @@
             // 
             // btnTestException
             // 
+            this.btnTestException.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.btnTestException.Location = new System.Drawing.Point(279, 388);
             this.btnTestException.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTestException.Name = "btnTestException";
@@ -243,6 +246,7 @@
             // 
             // listBoxProviders
             // 
+            this.listBoxProviders.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.listBoxProviders.FormattingEnabled = true;
             this.listBoxProviders.ItemHeight = 16;
             this.listBoxProviders.Location = new System.Drawing.Point(593, 26);
@@ -253,6 +257,7 @@
             // 
             // add_button
             // 
+            this.add_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.add_button.Location = new System.Drawing.Point(70, 453);
             this.add_button.Name = "add_button";
             this.add_button.Size = new System.Drawing.Size(162, 28);
@@ -263,6 +268,7 @@
             // 
             // remove_button
             // 
+            this.remove_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.remove_button.Location = new System.Drawing.Point(269, 451);
             this.remove_button.Name = "remove_button";
             this.remove_button.Size = new System.Drawing.Size(166, 30);
@@ -273,6 +279,7 @@
             // 
             // test_button
             // 
+            this.test_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.test_button.Location = new System.Drawing.Point(120, 488);
             this.test_button.Name = "test_button";
             this.test_button.Size = new System.Drawing.Size(300, 35);
@@ -283,6 +290,7 @@
             // 
             // listBoxEvents
             // 
+            this.listBoxEvents.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.listBoxEvents.FormattingEnabled = true;
             this.listBoxEvents.ItemHeight = 16;
             this.listBoxEvents.Location = new System.Drawing.Point(498, 301);
@@ -294,7 +302,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 587);
+            this.AutoScroll = true;
+            this.ClientSize = new System.Drawing.Size(948, 574);
             this.Controls.Add(this.listBoxEvents);
             this.Controls.Add(this.test_button);
             this.Controls.Add(this.remove_button);
@@ -321,6 +330,8 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MaximumSize = new System.Drawing.Size(1200, 900);
+            this.MinimumSize = new System.Drawing.Size(966, 621);
             this.Name = "Main_Form";
             this.Text = "Основные сведения";
             this.ResumeLayout(false);

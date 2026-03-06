@@ -8,6 +8,7 @@ namespace LB1OOP.Interfaces
 {
     public interface IProviderFactory
     {
+
         IProvider CreateBasicProvider();
         IProvider CreateProviderWithName(string name);
         IProvider CreateProviderWithTarif(string name, float tarifCost);

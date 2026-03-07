@@ -119,8 +119,10 @@ namespace LB1OOP
 
                 float result = _provider.CalculateUserDensity();
 
-                MessageBox(this.Handle, $"Плотность: {result}", "Плотность", MB_OK | MB_ICONERROR);
-
+                MessageBox(this.Handle,
+                                   $"Результат: {result:F2} абонентов/км²",
+                                   "Результат",
+                                   MB_OK | MB_ICONINFORMATION);
             }
             catch (CustomDivideByZeroException ex)
             {

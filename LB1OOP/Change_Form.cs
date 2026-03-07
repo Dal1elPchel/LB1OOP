@@ -17,11 +17,7 @@ namespace LB1OOP
         private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);
         private const uint MB_OK = 0x00000000;
         private const uint MB_ICONERROR = 0x00000010;
-        private const uint MB_ICONWARNING = 0x00000030;
-        private const uint MB_ICONINFORMATION = 0x00000040;
-        private const uint MB_YESNO = 0x00000004;
-        private const uint MB_ICONQUESTION = 0x00000020;
-        private const uint IDYES = 6;
+        
 
         private Provider editProvider;
 

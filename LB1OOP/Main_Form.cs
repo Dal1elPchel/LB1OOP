@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,12 @@ namespace LB1OOP
 {
     public partial class Main_Form: Form
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);
+        private const uint MB_OK = 0x00000000;
+        private const uint MB_ICONERROR = 0x00000010;
+        private const uint MB_ICONINFORMATION = 0x00000040;
+
         private Create_Form create_Form;
         private Change_Form change_Form;
 
@@ -66,7 +73,7 @@ namespace LB1OOP
         {
             if (_provider == null)
             {
-                MessageBox.Show("Выберите провайдера для изменения!");
+                MessageBox(this.Handle, "Выберите провайдера для изменения!", "Провайдер не выбран", MB_OK | MB_ICONERROR);
                 return;
             }
             string oldName = _provider.Name;
@@ -112,11 +119,18 @@ namespace LB1OOP
 
                 float result = _provider.CalculateUserDensity();
 
-                MessageBox.Show($"Результат: {result}");
+                MessageBox(this.Handle, $"Плотность: {result}", "Плотность", MB_OK | MB_ICONERROR);
+
             }
             catch (CustomDivideByZeroException ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox(this.Handle, ex.Message, "Ошибка деления на ноль!", MB_OK | MB_ICONERROR);
+
+            }
+            catch (NullReferenceException ex)
+            {
+                MessageBox(this.Handle, ex.Message, "Выберите провайдера!", MB_OK | MB_ICONERROR);
+
             }
         }
 
@@ -140,20 +154,17 @@ namespace LB1OOP
 
         private void remove_button_Click(object sender, EventArgs e)
         {
-            if (listBoxProviders.SelectedItems == null)
+            try
             {
-                MessageBox.Show("Выберите провайдера для удаления!");
-                return;
-            }
+                if (listBoxProviders.SelectedItems == null)
+                {
+                    MessageBox(this.Handle, "Выберите провайдера для удаления!", "Ошибка удаления провайдера", MB_OK | MB_ICONERROR);
+                    return;
+                }
 
-            string selectedName = listBoxProviders.SelectedItem.ToString();
+                string selectedName = listBoxProviders.SelectedItem.ToString();
 
-            var providerToRemove = _collection.GetAll().FirstOrDefault(p => p.Name == selectedName);
-
-            var result = MessageBox.Show($"Удалить провайдера \"{selectedName}\"?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (result == DialogResult.Yes)
-            {
+                var providerToRemove = _collection.GetAll().FirstOrDefault(p => p.Name == selectedName);
                 _collection.RemoveProvider(providerToRemove);
 
                 if (_provider == providerToRemove)
@@ -161,6 +172,11 @@ namespace LB1OOP
                     _provider = null;
                 }
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox(this.Handle, "Выберите провайдера для удаления!", "Ошибка удаления провайдера", MB_OK | MB_ICONERROR);
+            }
+
         }
         private void listBoxProviders_SelectedIndexChanged(object sender, EventArgs e)
         {

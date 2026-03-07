@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,12 @@ namespace LB1OOP
 {
     public partial class Change_Form: Form
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);
+        private const uint MB_OK = 0x00000000;
+        private const uint MB_ICONERROR = 0x00000010;
+        private const uint MB_ICONINFORMATION = 0x00000040;
+
         private Provider editProvider;
 
         public Change_Form(Provider provider)
@@ -54,9 +61,10 @@ namespace LB1OOP
                 this.Close();
             } catch (Exception ex)
             {
-                    MessageBox.Show(ex.Message);
+                MessageBox(this.Handle, ex.Message, $"Ошибка при изменении:\\n{ex.Message}", MB_OK | MB_ICONERROR);
+
             }
-           
+
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)

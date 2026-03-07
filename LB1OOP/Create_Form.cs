@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,12 @@ namespace LB1OOP
 {
     public partial class Create_Form : Form
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);
+        private const uint MB_OK = 0x00000000;
+        private const uint MB_ICONERROR = 0x00000010;
+        private const uint MB_ICONINFORMATION = 0x00000040;
+
         public Provider CreatedProvider { get; private set; }
         public Create_Form()
         {
@@ -49,7 +56,7 @@ namespace LB1OOP
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при создании:\n{ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox(this.Handle, ex.Message, $"Ошибка при создании:\\n{ex.Message}", MB_OK | MB_ICONERROR);
             }
         }
 

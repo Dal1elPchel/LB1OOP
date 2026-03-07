@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -12,6 +13,16 @@ namespace LB1OOP
 {
     public partial class Main_Form: Form
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);
+        private const uint MB_OK = 0x00000000;
+        private const uint MB_ICONERROR = 0x00000010;
+        private const uint MB_ICONWARNING = 0x00000030;
+        private const uint MB_ICONINFORMATION = 0x00000040;
+        private const uint MB_YESNO = 0x00000004;
+        private const uint MB_ICONQUESTION = 0x00000020;
+        private const uint IDYES = 6;
+
         private Change_Form _form3;
         private Provider provider;
         public Main_Form()
@@ -21,13 +32,7 @@ namespace LB1OOP
             DisplayProviderInfo();
         }
 
-        public Provider Provider
-        {
-            get => default;
-            set
-            {
-            }
-        }
+        
 
         private void DisplayProviderInfo()
         {
@@ -73,11 +78,18 @@ namespace LB1OOP
 
                 float result = provider.CalculateUserDensity();
 
-                MessageBox.Show($"Результат: {result}");
+                MessageBox(this.Handle,
+                   $"Результат: {result:F2} абонентов/км²",
+                   "Результат",
+                   MB_OK | MB_ICONINFORMATION);
             }
             catch (CustomDivideByZeroException ex)
             {
-                MessageBox.Show(ex.ToString());
+
+                MessageBox(this.Handle,
+                     ex.Message,
+                     "Ошибка деления на ноль",
+                     MB_OK | MB_ICONERROR);
             }
         }
     }

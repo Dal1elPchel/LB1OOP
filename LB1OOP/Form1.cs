@@ -12,6 +12,7 @@ namespace LB1OOP
 {
     public partial class Hello_Form: Form
     {
+
         private Main_Form _form2;
 
         public Hello_Form()

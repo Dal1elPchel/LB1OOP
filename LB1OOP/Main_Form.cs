@@ -21,6 +21,14 @@ namespace LB1OOP
             DisplayProviderInfo();
         }
 
+        public Provider Provider
+        {
+            get => default;
+            set
+            {
+            }
+        }
+
         private void DisplayProviderInfo()
         {
 

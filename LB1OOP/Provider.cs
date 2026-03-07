@@ -258,5 +258,13 @@ namespace LB1OOP
         /// </summary>
         /// <param name="provider">Добавляемый провайдер.</param>
         private static void AddNewProvider(Provider provider) => _providerCount.AddLast(provider);
+
+        public CustomDivideByZeroException CustomDivideByZeroException
+        {
+            get => default;
+            set
+            {
+            }
+        }
     }
 }

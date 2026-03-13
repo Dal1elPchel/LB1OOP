@@ -154,6 +154,10 @@ namespace LB1OOP
             {
                 MessageBox.Show(ex.ToString());
             }
+            catch (NullReferenceException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
         }
 
         private void add_button_Click(object sender, EventArgs e)

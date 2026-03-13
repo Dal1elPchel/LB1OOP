@@ -126,12 +126,12 @@ namespace LB1OOP
             }
             catch (CustomDivideByZeroException ex)
             {
-                MessageBox(this.Handle, ex.Message, "Ошибка деления на ноль!", MB_OK | MB_ICONERROR);
+                MessageBox(this.Handle, "Ошибка деления на ноль!", "Ошибка деления на ноль!", MB_OK | MB_ICONERROR);
 
             }
             catch (NullReferenceException ex)
             {
-                MessageBox(this.Handle, ex.Message, "Выберите провайдера!", MB_OK | MB_ICONERROR);
+                MessageBox(this.Handle, "Выберите провайдера!", "Выберите провайдера!", MB_OK | MB_ICONERROR);
 
             }
         }

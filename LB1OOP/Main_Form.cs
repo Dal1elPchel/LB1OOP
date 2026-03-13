@@ -41,6 +41,7 @@ namespace LB1OOP
             contractNumberTextBox.Text = provider.ContractNumber.ToString();
             tarifNameTextBox.Text = provider.TarifName.ToString();
             tarifCoastTextBox.Text = provider.TarifCoast.ToString();
+            UserCountTextBocx.Text = provider.GetUserCountInHex();
 
         }
 

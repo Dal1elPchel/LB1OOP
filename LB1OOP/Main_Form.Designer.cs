@@ -48,6 +48,8 @@
             this.change_button = new System.Windows.Forms.Button();
             this.ExitButton = new System.Windows.Forms.Button();
             this.btnTestException = new System.Windows.Forms.Button();
+            this.UserCountTextBocx = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -75,7 +77,7 @@
             this.NameLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.NameLabel.AutoSize = true;
             this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.NameLabel.Location = new System.Drawing.Point(23, 95);
+            this.NameLabel.Location = new System.Drawing.Point(23, 134);
             this.NameLabel.Name = "NameLabel";
             this.NameLabel.Size = new System.Drawing.Size(157, 25);
             this.NameLabel.TabIndex = 2;
@@ -84,7 +86,7 @@
             // NameTextBox
             // 
             this.NameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.NameTextBox.Location = new System.Drawing.Point(344, 95);
+            this.NameTextBox.Location = new System.Drawing.Point(347, 134);
             this.NameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.ReadOnly = true;
@@ -94,7 +96,7 @@
             // userCountTextBox
             // 
             this.userCountTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.userCountTextBox.Location = new System.Drawing.Point(344, 138);
+            this.userCountTextBox.Location = new System.Drawing.Point(347, 177);
             this.userCountTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userCountTextBox.Name = "userCountTextBox";
             this.userCountTextBox.ReadOnly = true;
@@ -106,7 +108,7 @@
             this.userCountLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.userCountLabel.AutoSize = true;
             this.userCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.userCountLabel.Location = new System.Drawing.Point(23, 135);
+            this.userCountLabel.Location = new System.Drawing.Point(23, 174);
             this.userCountLabel.Name = "userCountLabel";
             this.userCountLabel.Size = new System.Drawing.Size(271, 25);
             this.userCountLabel.TabIndex = 4;
@@ -115,7 +117,7 @@
             // speedLimitTextBox
             // 
             this.speedLimitTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.speedLimitTextBox.Location = new System.Drawing.Point(345, 178);
+            this.speedLimitTextBox.Location = new System.Drawing.Point(348, 217);
             this.speedLimitTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.speedLimitTextBox.Name = "speedLimitTextBox";
             this.speedLimitTextBox.ReadOnly = true;
@@ -127,7 +129,7 @@
             this.speedLimitLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.speedLimitLabel.AutoSize = true;
             this.speedLimitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.speedLimitLabel.Location = new System.Drawing.Point(23, 175);
+            this.speedLimitLabel.Location = new System.Drawing.Point(23, 214);
             this.speedLimitLabel.Name = "speedLimitLabel";
             this.speedLimitLabel.Size = new System.Drawing.Size(169, 25);
             this.speedLimitLabel.TabIndex = 6;
@@ -136,7 +138,7 @@
             // areaTextBox
             // 
             this.areaTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.areaTextBox.Location = new System.Drawing.Point(345, 220);
+            this.areaTextBox.Location = new System.Drawing.Point(348, 259);
             this.areaTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.areaTextBox.Name = "areaTextBox";
             this.areaTextBox.ReadOnly = true;
@@ -148,7 +150,7 @@
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label5.Location = new System.Drawing.Point(23, 217);
+            this.label5.Location = new System.Drawing.Point(23, 256);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(194, 25);
             this.label5.TabIndex = 8;
@@ -157,7 +159,7 @@
             // contractNumberTextBox
             // 
             this.contractNumberTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.contractNumberTextBox.Location = new System.Drawing.Point(345, 261);
+            this.contractNumberTextBox.Location = new System.Drawing.Point(348, 300);
             this.contractNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.contractNumberTextBox.Name = "contractNumberTextBox";
             this.contractNumberTextBox.ReadOnly = true;
@@ -169,7 +171,7 @@
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label6.Location = new System.Drawing.Point(23, 258);
+            this.label6.Location = new System.Drawing.Point(23, 297);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(164, 25);
             this.label6.TabIndex = 10;
@@ -178,7 +180,7 @@
             // tarifNameTextBox
             // 
             this.tarifNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.tarifNameTextBox.Location = new System.Drawing.Point(345, 305);
+            this.tarifNameTextBox.Location = new System.Drawing.Point(348, 344);
             this.tarifNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tarifNameTextBox.Name = "tarifNameTextBox";
             this.tarifNameTextBox.ReadOnly = true;
@@ -190,7 +192,7 @@
             this.label7.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(23, 305);
+            this.label7.Location = new System.Drawing.Point(23, 344);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(177, 25);
             this.label7.TabIndex = 12;
@@ -199,7 +201,7 @@
             // tarifCoastTextBox
             // 
             this.tarifCoastTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.tarifCoastTextBox.Location = new System.Drawing.Point(345, 348);
+            this.tarifCoastTextBox.Location = new System.Drawing.Point(348, 387);
             this.tarifCoastTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tarifCoastTextBox.Name = "tarifCoastTextBox";
             this.tarifCoastTextBox.ReadOnly = true;
@@ -211,7 +213,7 @@
             this.label8.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(23, 345);
+            this.label8.Location = new System.Drawing.Point(23, 384);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(197, 25);
             this.label8.TabIndex = 14;
@@ -220,7 +222,7 @@
             // change_button
             // 
             this.change_button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.change_button.Location = new System.Drawing.Point(43, 402);
+            this.change_button.Location = new System.Drawing.Point(45, 480);
             this.change_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.change_button.Name = "change_button";
             this.change_button.Size = new System.Drawing.Size(117, 30);
@@ -232,7 +234,7 @@
             // ExitButton
             // 
             this.ExitButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.ExitButton.Location = new System.Drawing.Point(408, 402);
+            this.ExitButton.Location = new System.Drawing.Point(410, 480);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(117, 30);
@@ -244,7 +246,7 @@
             // btnTestException
             // 
             this.btnTestException.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTestException.Location = new System.Drawing.Point(196, 389);
+            this.btnTestException.Location = new System.Drawing.Point(198, 467);
             this.btnTestException.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTestException.Name = "btnTestException";
             this.btnTestException.Size = new System.Drawing.Size(179, 58);
@@ -253,11 +255,34 @@
             this.btnTestException.UseVisualStyleBackColor = true;
             this.btnTestException.Click += new System.EventHandler(this.btnTestException_Click_1);
             // 
+            // UserCountTextBocx
+            // 
+            this.UserCountTextBocx.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.UserCountTextBocx.Location = new System.Drawing.Point(348, 430);
+            this.UserCountTextBocx.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.UserCountTextBocx.Name = "UserCountTextBocx";
+            this.UserCountTextBocx.ReadOnly = true;
+            this.UserCountTextBocx.Size = new System.Drawing.Size(180, 22);
+            this.UserCountTextBocx.TabIndex = 20;
+            // 
+            // label3
+            // 
+            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(23, 427);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(243, 25);
+            this.label3.TabIndex = 19;
+            this.label3.Text = "кол-во абонентов(16 СС)";
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(565, 450);
+            this.ClientSize = new System.Drawing.Size(568, 528);
+            this.Controls.Add(this.UserCountTextBocx);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.btnTestException);
             this.Controls.Add(this.ExitButton);
             this.Controls.Add(this.change_button);
@@ -309,5 +334,7 @@
         private System.Windows.Forms.Button change_button;
         private System.Windows.Forms.Button ExitButton;
         private System.Windows.Forms.Button btnTestException;
+        private System.Windows.Forms.TextBox UserCountTextBocx;
+        private System.Windows.Forms.Label label3;
     }
 }

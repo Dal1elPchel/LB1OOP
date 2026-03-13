@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,15 @@ namespace LB1OOP
     /// </summary>
     public partial class Main_Form : Form
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);
+        private const uint MB_OK = 0x00000000;
+        private const uint MB_ICONERROR = 0x00000010;
+        private const uint MB_ICONINFORMATION = 0x00000040;
+        private const uint MB_YESNO = 0x4;
+        private const uint MB_ICONQUESTION = 0x20;
+        private const int IDYES = 6;
+        
         private Create_Form create_Form;
         private Change_Form change_Form;
 
@@ -86,7 +96,10 @@ namespace LB1OOP
         {
             if (_provider == null)
             {
-                MessageBox.Show("Выберите провайдера для изменения!");
+                MessageBox(this.Handle,
+                    "Выберите провайдера для изменения",
+                    "Выберите провайдера",
+                    MB_OK | MB_ICONERROR);
                 return;
             }
             string oldName = _provider.Name;
@@ -144,15 +157,19 @@ namespace LB1OOP
         {
             try
             {
-                
-
                 float result = _provider.CalculateUserDensity();
 
-                MessageBox.Show($"Результат: {result}");
+                MessageBox(this.Handle,
+                    $"Результат: {result:F2} абонентов/км²",
+                    "Результат",
+                    MB_OK | MB_ICONINFORMATION);
             }
             catch (CustomDivideByZeroException ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox(this.Handle,
+                    ex.Message,
+                    "Ошибка деления на ноль",
+                    MB_OK | MB_ICONERROR);
             }
         }
 
@@ -176,21 +193,27 @@ namespace LB1OOP
 
         private void remove_button_Click(object sender, EventArgs e)
         {
+            if (listBoxProviders.SelectedItem == null)
+            {
+                MessageBox(this.Handle,
+                "Выберите провайдера для изменения",
+                "Выберите провайдера",
+                MB_OK | MB_ICONINFORMATION);
+                return;
+            }
+
             try
             {
-                if (listBoxProviders.SelectedItems == null)
-                {
-                    MessageBox.Show("Выберите провайдера для удаления!");
-                    return;
-                }
-
                 string selectedName = listBoxProviders.SelectedItem.ToString();
 
                 var providerToRemove = _collection.GetAll().FirstOrDefault(p => p.Name == selectedName);
 
-                var result = MessageBox.Show($"Удалить провайдера \"{selectedName}\"?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                int result = MessageBox(this.Handle,
+                    $"Удалить провайдера \"{selectedName}\"?",
+                    "Подтверждение",
+                    MB_YESNO | MB_ICONQUESTION);
 
-                if (result == DialogResult.Yes)
+                if (result == IDYES)
                 {
                     _collection.RemoveProvider(providerToRemove);
 
@@ -202,11 +225,11 @@ namespace LB1OOP
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox(this.Handle, ex.Message, "Ошибка", MB_OK | MB_ICONERROR);
             }
             catch
             {
-                MessageBox.Show("Underfined type of exception!");
+                MessageBox(this.Handle, "Undefined type of exception!", "Ошибка", MB_OK | MB_ICONERROR);
             }
             
         }

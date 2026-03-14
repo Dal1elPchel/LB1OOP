@@ -17,25 +17,26 @@ namespace LB1OOP
     /// </summary>
     public partial class Main_Form : Form
     {
+
         private Create_Form create_Form;
         private Change_Form change_Form;
 
-        private IProviderFactory _providerFactory;
+        public IProviderFactory _providerFactory;
         private IProvider _provider;
         private IProviderCollection _collection;
 
-        public Main_Form(IProviderFactory factory)
+        public Main_Form()
         {
             InitializeComponent();
 
-            _providerFactory = factory;
+            _providerFactory = new DefaultProviderFactory();
             _collection = _providerFactory.CreateProviderCollection();
 
-            _collection.providerAdded += (p, action) =>
+            _collection.providerAdded += (p, message) =>
             {
                 listBoxProviders.Items.Add(p.Name);
 
-                string log = $"[{DateTime.Now:HH:mm:ss}] {action}: {p.Name} (Тариф: {p.TarifName})";
+                string log = $"[{DateTime.Now:HH:mm:ss}] {message}: {p.Name} (Тариф: {p.TarifName})";
                 listBoxEvents.Items.Add(log);
             };
 
@@ -68,7 +69,7 @@ namespace LB1OOP
 
             NameTextBox.Text = _provider.Name;
             userCountTextBox.Text = _provider.UserCount.ToString();
-            speedLimitTextBox.Text = _provider.SpeedLimit.ToString();
+            speedLimitTextBox.Text = _provider.SpeedLimit == 0 ? "Не задан" : _provider.SpeedLimit.ToString();
             areaTextBox.Text = _provider.Area.ToString();
             contractNumberTextBox.Text = _provider.ContractNumber.ToString();
             tarifNameTextBox.Text = _provider.TarifName.ToString();
@@ -89,6 +90,7 @@ namespace LB1OOP
                 MessageBox.Show("Выберите провайдера для изменения!");
                 return;
             }
+
             string oldName = _provider.Name;
             change_Form = new Change_Form(_provider);
 

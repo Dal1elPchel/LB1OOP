@@ -61,9 +61,9 @@ namespace LB1OOP
         /// </exception>
         public static void ValidateTarifCoast(float tarifCoast)
         {
-            if (tarifCoast < 0 || tarifCoast > 100_000)
+            if (tarifCoast < 100 || tarifCoast > 100_000)
             {
-                throw new ArgumentOutOfRangeException(nameof(tarifCoast), "Стоимость тарифа должна быть от 0 до 100 000");
+                throw new ArgumentOutOfRangeException(nameof(tarifCoast), "Стоимость тарифа должна быть от 100 до 100 000");
             }
         }
 
@@ -76,9 +76,9 @@ namespace LB1OOP
         /// </exception>
         public static void ValidateUserCount(int userCount)
         {
-            if (userCount < 0 || userCount > 1_000_000_000)
+            if (userCount < 0 || userCount > 6_000_000_000)
             {
-                throw new ArgumentOutOfRangeException(nameof(userCount), "Количество пользователей должно быть от 0 до 1 миллиарда");
+                throw new ArgumentOutOfRangeException(nameof(userCount), "Количество пользователей должно быть от 0 до 6 миллиардов");
             }
         }
 
@@ -93,7 +93,7 @@ namespace LB1OOP
         {
             if (speedLimit < 0 || speedLimit > 10_000)
             {
-                throw new ArgumentOutOfRangeException(nameof(speedLimit), "Скорость должна быть от 0 до 10 000 Мбит/с");
+                throw new ArgumentOutOfRangeException(nameof(speedLimit), "Скорость должна быть от 1 до 10 000 Мбит/с");
             }
         }
 

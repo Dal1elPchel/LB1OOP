@@ -38,7 +38,7 @@ namespace LB1OOP
 
             NameTextBox.Text = editProvider.Name;
             userCountTextBox.Text = editProvider.UserCount.ToString();
-            speedLimitTextBox.Text = editProvider.SpeedLimit.ToString();
+            speedLimitTextBox.Text = editProvider.SpeedLimit == 0 ? "Не задан" : editProvider.SpeedLimit.ToString();
             areaTextBox.Text = editProvider.Area.ToString();
             contractNumberTextBox.Text = editProvider.ContractNumber.ToString();
             tarifNameTextBox.Text = editProvider.TarifName.ToString();
@@ -68,7 +68,7 @@ namespace LB1OOP
             {
                 editProvider.Name = NameTextBox.Text;
                 editProvider.UserCount = int.Parse(userCountTextBox.Text);
-                editProvider.SpeedLimit = float.Parse(speedLimitTextBox.Text);
+                editProvider.SpeedLimit = speedLimitTextBox.Text == "Не задан" ? 0 : float.Parse(speedLimitTextBox.Text);
                 editProvider.Area = float.Parse(areaTextBox.Text);
                 editProvider.ContractNumber = int.Parse(contractNumberTextBox.Text);
                 editProvider.TarifName = tarifNameTextBox.Text;

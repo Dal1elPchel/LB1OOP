@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace LB1OOP
 {
-    public delegate void ProviderCollectionChangedEventHandler(IProvider provider, string action);
+    public delegate void ProviderCollectionChangedEventHandler(IProvider provider, string message);
     public class ProviderList : IProviderCollection
     {
         private List<IProvider> _providers;

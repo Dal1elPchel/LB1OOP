@@ -24,13 +24,13 @@ namespace LB1OOP
         private void DisplayProviderInfo()
         {
 
-            NameTextBox.Text = "";
+            NameTextBox.Text = "Не указан";
             userCountTextBox.Text = "0";
-            speedLimitTextBox.Text = "0";
-            areaTextBox.Text = "0";
+            speedLimitTextBox.Text = "Не указан";
+            areaTextBox.Text = "100";
             contractNumberTextBox.Text = "0";
-            tarifNameTextBox.Text = "Undefined";
-            tarifCoastTextBox.Text = "0";
+            tarifNameTextBox.Text = "Не указан";
+            tarifCoastTextBox.Text = "100";
 
         }
 
@@ -40,7 +40,7 @@ namespace LB1OOP
             {
                 string name = NameTextBox.Text;
                 int userCount = int.Parse(userCountTextBox.Text);
-                float speedLimit = float.Parse(speedLimitTextBox.Text);
+                float speedLimit = speedLimitTextBox.Text != "Не указан" ? float.Parse(speedLimitTextBox.Text) : 0;
                 float area = float.Parse(areaTextBox.Text);
                 int contract = int.Parse(contractNumberTextBox.Text);
                 string tarif = tarifNameTextBox.Text;

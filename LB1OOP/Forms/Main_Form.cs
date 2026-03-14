@@ -154,8 +154,6 @@ namespace LB1OOP
         {
             try
             {
-                
-
                 float result = _provider.CalculateUserDensity();
                 MessageBox(this.Handle, $"Результат: {result:F2} абонентов/км²",
                     "Результат",
@@ -206,6 +204,8 @@ namespace LB1OOP
                     return;
                 }
 
+            try
+            {
                 string selectedName = listBoxProviders.SelectedItem.ToString();
 
                 var providerToRemove = _collection.GetAll().FirstOrDefault(p => p.Name == selectedName);

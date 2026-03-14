@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -13,6 +14,11 @@ namespace LB1OOP
 {
     public partial class Create_Form : Form
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);
+        private const uint MB_OK = 0x00000000;
+        private const uint MB_ICONERROR = 0x00000010;
+
         private readonly IProviderFactory _factory;
         public IProvider CreatedProvider { get; private set; }
         public Create_Form(IProviderFactory factory)
@@ -38,13 +44,13 @@ namespace LB1OOP
         {
             try
             {
-                string name = NameTextBox.Text;
-                int userCount = int.Parse(userCountTextBox.Text);
-                float speedLimit = speedLimitTextBox.Text != "Не указан" ? float.Parse(speedLimitTextBox.Text) : 0;
-                float area = float.Parse(areaTextBox.Text);
-                int contract = int.Parse(contractNumberTextBox.Text);
-                string tarif = tarifNameTextBox.Text;
-                float tarifCoast = float.Parse(tarifCoastTextBox.Text);
+                string name = NameTextBox.Text.Trim();
+                int userCount = int.Parse(userCountTextBox.Text.Trim());
+                float speedLimit = speedLimitTextBox.Text.Trim() != "Не указан" ? float.Parse(speedLimitTextBox.Text.Trim()) : 0;
+                float area = float.Parse(areaTextBox.Text.Trim());
+                int contract = int.Parse(contractNumberTextBox.Text.Trim());
+                string tarif = tarifNameTextBox.Text.Trim();
+                float tarifCoast = float.Parse(tarifCoastTextBox.Text.Trim());
 
                 CreatedProvider = _factory.CreateProvider(name, tarifCoast, userCount, speedLimit, area, contract, tarif);
                 this.DialogResult = DialogResult.OK;
@@ -52,7 +58,9 @@ namespace LB1OOP
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Ошибка при создании:\n{ex.Message}", "Ошибка", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox(this.Handle, ex.Message,
+                                   "Ошибка",
+                                   MB_OK | MB_ICONERROR);
             }
         }
 

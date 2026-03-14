@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,11 @@ namespace LB1OOP
     /// </summary>
     public partial class Main_Form : Form
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);
+        private const uint MB_OK = 0x00000000;
+        private const uint MB_ICONERROR = 0x00000010;
+        private const uint MB_ICONINFORMATION = 0x00000040;
 
         private Create_Form create_Form;
         private Change_Form change_Form;
@@ -67,13 +73,13 @@ namespace LB1OOP
         private void DisplayProviderInfo()
         {
 
-            NameTextBox.Text = _provider.Name;
-            userCountTextBox.Text = _provider.UserCount.ToString();
-            speedLimitTextBox.Text = _provider.SpeedLimit == 0 ? "Не задан" : _provider.SpeedLimit.ToString();
-            areaTextBox.Text = _provider.Area.ToString();
-            contractNumberTextBox.Text = _provider.ContractNumber.ToString();
-            tarifNameTextBox.Text = _provider.TarifName.ToString();
-            tarifCoastTextBox.Text = _provider.TarifCoast.ToString();
+            NameTextBox.Text = _provider.Name.Trim();
+            userCountTextBox.Text = _provider.UserCount.ToString().Trim();
+            speedLimitTextBox.Text = _provider.SpeedLimit == 0 ? "Не задан" : _provider.SpeedLimit.ToString().Trim();
+            areaTextBox.Text = _provider.Area.ToString().Trim();
+            contractNumberTextBox.Text = _provider.ContractNumber.ToString().Trim();
+            tarifNameTextBox.Text = _provider.TarifName.ToString().Trim();
+            tarifCoastTextBox.Text = _provider.TarifCoast.ToString().Trim();
 
         }
 
@@ -87,7 +93,9 @@ namespace LB1OOP
         {
             if (_provider == null)
             {
-                MessageBox.Show("Выберите провайдера для изменения!");
+                MessageBox(this.Handle, $"Выберите провайдера из списка",
+                    "Ошибка изменения",
+                    MB_OK | MB_ICONERROR);
                 return;
             }
 
@@ -149,16 +157,22 @@ namespace LB1OOP
                 
 
                 float result = _provider.CalculateUserDensity();
+                MessageBox(this.Handle, $"Результат: {result:F2} абонентов/км²",
+                    "Результат",
+                    MB_OK | MB_ICONINFORMATION);
 
-                MessageBox.Show($"Результат: {result}");
             }
             catch (CustomDivideByZeroException ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox(this.Handle, $"Невозможно рассчитать плотность абонентов, нет зоны покрытия!",
+                    "Ошибка!",
+                    MB_OK | MB_ICONERROR);
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox(this.Handle, $"Выберите провайдера из списка!",
+                    "Ошибка операции",
+                    MB_OK | MB_ICONERROR);
             }
         }
 
@@ -186,7 +200,9 @@ namespace LB1OOP
             {
                 if (listBoxProviders.SelectedItems == null)
                 {
-                    MessageBox.Show("Выберите провайдера для удаления!");
+                    MessageBox(this.Handle, $"Выберите провайдера из списка для удаления!",
+                    "Ошибка удаления",
+                    MB_OK | MB_ICONERROR);
                     return;
                 }
 
@@ -194,27 +210,25 @@ namespace LB1OOP
 
                 var providerToRemove = _collection.GetAll().FirstOrDefault(p => p.Name == selectedName);
 
-                var result = MessageBox.Show($"Удалить провайдера \"{selectedName}\"?", "Подтверждение", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                _collection.RemoveProvider(providerToRemove);
 
-                if (result == DialogResult.Yes)
+                if (_provider == providerToRemove)
                 {
-                    _collection.RemoveProvider(providerToRemove);
-
-                    if (_provider == providerToRemove)
-                    {
-                        _provider = null;
-                    }
+                    _provider = null;
                 }
             }
             catch (NullReferenceException ex)
             {
-                MessageBox.Show(ex.Message);
+                MessageBox(this.Handle, $"Выберите провайдера из списка",
+                    "Ошибка изменения",
+                    MB_OK | MB_ICONERROR);
             }
             catch
             {
-                MessageBox.Show("Underfined type of exception!");
-            }
-            
+                MessageBox(this.Handle, $"Неизвестный тип ошибки!",
+                    "Ошибка",
+                    MB_OK | MB_ICONERROR);
+            }         
         }
         private void listBoxProviders_SelectedIndexChanged(object sender, EventArgs e)
         {

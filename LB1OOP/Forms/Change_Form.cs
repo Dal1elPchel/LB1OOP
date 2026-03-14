@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -17,6 +18,11 @@ namespace LB1OOP
     /// </summary>
     public partial class Change_Form : Form
     {
+        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);
+        private const uint MB_OK = 0x00000000;
+        private const uint MB_ICONERROR = 0x00000010;
+
         private IProvider editProvider;
 
         /// <summary>
@@ -66,18 +72,20 @@ namespace LB1OOP
         {
             try
             {
-                editProvider.Name = NameTextBox.Text;
-                editProvider.UserCount = int.Parse(userCountTextBox.Text);
-                editProvider.SpeedLimit = speedLimitTextBox.Text == "Не задан" ? 0 : float.Parse(speedLimitTextBox.Text);
-                editProvider.Area = float.Parse(areaTextBox.Text);
-                editProvider.ContractNumber = int.Parse(contractNumberTextBox.Text);
-                editProvider.TarifName = tarifNameTextBox.Text;
-                editProvider.TarifCoast = float.Parse(tarifCoastTextBox.Text);
+                editProvider.Name = NameTextBox.Text.Trim();
+                editProvider.UserCount = int.Parse(userCountTextBox.Text.Trim());
+                editProvider.SpeedLimit = speedLimitTextBox.Text.Trim() == "Не задан" ? 0 : float.Parse(speedLimitTextBox.Text.Trim());
+                editProvider.Area = float.Parse(areaTextBox.Text.Trim());
+                editProvider.ContractNumber = int.Parse(contractNumberTextBox.Text.Trim());
+                editProvider.TarifName = tarifNameTextBox.Text.Trim();
+                editProvider.TarifCoast = float.Parse(tarifCoastTextBox.Text.Trim());
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             } catch (Exception ex)
             {
-                    MessageBox.Show(ex.Message);
+                MessageBox(this.Handle, ex.Message,
+                               "Ошибка",
+                               MB_OK | MB_ICONERROR);
             }
            
         }

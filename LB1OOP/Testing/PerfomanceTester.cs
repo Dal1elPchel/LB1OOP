@@ -9,22 +9,22 @@ namespace LB1OOP
 {
     public static class PerfomanceTester
     {
-        private const int Count = 100_000;
+        private const int Count = 500_000;
 
         public static TestResults RunTests()
         {
             var results = new TestResults();
             var dataList = GenerateData(Count);
 
-            var list = new List<InternetProvider>();
             var sw = Stopwatch.StartNew();
-            foreach (var p in dataList) list.Add(p);
+            var test_list = new List<InternetProvider>();
+            foreach (var p in dataList) test_list.Add(p);
             sw.Stop();
             results.ListAddTime = sw.ElapsedMilliseconds;
 
             sw.Restart();
             float sum = 0f;
-            foreach (var p in list) sum += p.TarifCoast;
+            foreach (var p in test_list) sum += p.TarifCoast;
             sw.Stop();
             results.ListSeqReadTime = sw.ElapsedMilliseconds;
 
@@ -33,17 +33,18 @@ namespace LB1OOP
             for (int i = 0; i < Count; i++)
             {
                 var idx = rand.Next(Count);
-                var p = list[idx];
+                var p = test_list[idx];
             }
             sw.Stop();
             results.ListRandomReadTime = sw.ElapsedMilliseconds;
 
-            var array = new InternetProvider[Count];
             sw.Restart();
+            var array = new InternetProvider[Count];
             for (int i = 0; i < Count; i++) array[i] = dataList[i];
             sw.Stop();
             results.ArrayAddTime = sw.ElapsedMilliseconds;
 
+            sum = 0;
             sw.Restart();
             foreach (var p in array) sum += p.TarifCoast;
             sw.Stop();

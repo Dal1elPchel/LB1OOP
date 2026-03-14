@@ -203,9 +203,6 @@ namespace LB1OOP
                     MB_OK | MB_ICONERROR);
                     return;
                 }
-
-            try
-            {
                 string selectedName = listBoxProviders.SelectedItem.ToString();
 
                 var providerToRemove = _collection.GetAll().FirstOrDefault(p => p.Name == selectedName);

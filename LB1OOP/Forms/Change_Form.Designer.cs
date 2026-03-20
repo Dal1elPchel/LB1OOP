@@ -51,7 +51,7 @@
             // tarifCoastTextBox
             // 
             this.tarifCoastTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.tarifCoastTextBox.Location = new System.Drawing.Point(355, 321);
+            this.tarifCoastTextBox.Location = new System.Drawing.Point(384, 321);
             this.tarifCoastTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tarifCoastTextBox.Name = "tarifCoastTextBox";
             this.tarifCoastTextBox.Size = new System.Drawing.Size(180, 22);
@@ -63,14 +63,14 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.Location = new System.Drawing.Point(32, 318);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(197, 25);
+            this.label8.Size = new System.Drawing.Size(247, 25);
             this.label8.TabIndex = 29;
-            this.label8.Text = "Стоимость тарифа";
+            this.label8.Text = "Стоимость тарифа (руб)";
             // 
             // tarifNameTextBox
             // 
             this.tarifNameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.tarifNameTextBox.Location = new System.Drawing.Point(355, 278);
+            this.tarifNameTextBox.Location = new System.Drawing.Point(384, 278);
             this.tarifNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tarifNameTextBox.Name = "tarifNameTextBox";
             this.tarifNameTextBox.Size = new System.Drawing.Size(180, 22);
@@ -89,7 +89,7 @@
             // contractNumberTextBox
             // 
             this.contractNumberTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.contractNumberTextBox.Location = new System.Drawing.Point(355, 234);
+            this.contractNumberTextBox.Location = new System.Drawing.Point(384, 234);
             this.contractNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.contractNumberTextBox.Name = "contractNumberTextBox";
             this.contractNumberTextBox.Size = new System.Drawing.Size(180, 22);
@@ -108,7 +108,7 @@
             // areaTextBox
             // 
             this.areaTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.areaTextBox.Location = new System.Drawing.Point(355, 193);
+            this.areaTextBox.Location = new System.Drawing.Point(384, 193);
             this.areaTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.areaTextBox.Name = "areaTextBox";
             this.areaTextBox.Size = new System.Drawing.Size(180, 22);
@@ -120,14 +120,14 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(32, 190);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(194, 25);
+            this.label5.Size = new System.Drawing.Size(265, 25);
             this.label5.TabIndex = 23;
-            this.label5.Text = "Площадь покрытия";
+            this.label5.Text = "Площадь покрытия (км кв)";
             // 
             // speedLimitTextBox
             // 
             this.speedLimitTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.speedLimitTextBox.Location = new System.Drawing.Point(355, 153);
+            this.speedLimitTextBox.Location = new System.Drawing.Point(384, 153);
             this.speedLimitTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.speedLimitTextBox.Name = "speedLimitTextBox";
             this.speedLimitTextBox.Size = new System.Drawing.Size(180, 22);
@@ -139,14 +139,14 @@
             this.speedLimitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.speedLimitLabel.Location = new System.Drawing.Point(32, 148);
             this.speedLimitLabel.Name = "speedLimitLabel";
-            this.speedLimitLabel.Size = new System.Drawing.Size(169, 25);
+            this.speedLimitLabel.Size = new System.Drawing.Size(276, 25);
             this.speedLimitLabel.TabIndex = 21;
-            this.speedLimitLabel.Text = "Лимит скорости";
+            this.speedLimitLabel.Text = "Лимит скорости (мбит/сек)";
             // 
             // userCountTextBox
             // 
             this.userCountTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.userCountTextBox.Location = new System.Drawing.Point(353, 111);
+            this.userCountTextBox.Location = new System.Drawing.Point(382, 111);
             this.userCountTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userCountTextBox.Name = "userCountTextBox";
             this.userCountTextBox.Size = new System.Drawing.Size(180, 22);
@@ -158,14 +158,14 @@
             this.userCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.userCountLabel.Location = new System.Drawing.Point(32, 108);
             this.userCountLabel.Name = "userCountLabel";
-            this.userCountLabel.Size = new System.Drawing.Size(271, 25);
+            this.userCountLabel.Size = new System.Drawing.Size(324, 25);
             this.userCountLabel.TabIndex = 19;
-            this.userCountLabel.Text = "Количество пользователей";
+            this.userCountLabel.Text = "Количество пользователей (чел)";
             // 
             // NameTextBox
             // 
             this.NameTextBox.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.NameTextBox.Location = new System.Drawing.Point(353, 68);
+            this.NameTextBox.Location = new System.Drawing.Point(382, 68);
             this.NameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.Size = new System.Drawing.Size(180, 22);
@@ -194,7 +194,7 @@
             // save_button
             // 
             this.save_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.save_button.Location = new System.Drawing.Point(403, 378);
+            this.save_button.Location = new System.Drawing.Point(432, 378);
             this.save_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.save_button.Name = "save_button";
             this.save_button.Size = new System.Drawing.Size(117, 30);
@@ -219,7 +219,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(563, 450);
+            this.ClientSize = new System.Drawing.Size(592, 450);
             this.Controls.Add(this.save_button);
             this.Controls.Add(this.back_button);
             this.Controls.Add(this.tarifCoastTextBox);

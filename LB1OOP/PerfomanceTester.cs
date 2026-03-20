@@ -20,13 +20,13 @@ namespace LB1OOP
             var sw = Stopwatch.StartNew();
             foreach (var p in dataList) list.Add(p);
             sw.Stop();
-            results.ListAddTime = sw.ElapsedMilliseconds;
+            results.ListAddTime = sw.Elapsed.TotalMilliseconds;
 
             sw.Restart();
             float sum = 0f;
             foreach (var p in list) sum += p.TarifCoast;
             sw.Stop();
-            results.ListSeqReadTime = sw.ElapsedMilliseconds;
+            results.ListSeqReadTime = sw.Elapsed.TotalMilliseconds;
 
             sw.Restart();
             var rand = new Random();
@@ -36,18 +36,18 @@ namespace LB1OOP
                 var p = list[idx];
             }
             sw.Stop();
-            results.ListRandomReadTime = sw.ElapsedMilliseconds;
+            results.ListRandomReadTime = sw.Elapsed.TotalMilliseconds;
 
             var array = new Provider[Count];
             sw.Restart();
             for (int i = 0; i < Count; i++) array[i] = dataList[i];
             sw.Stop();
-            results.ArrayAddTime = sw.ElapsedMilliseconds;
+            results.ArrayAddTime = sw.Elapsed.TotalMilliseconds;
 
             sw.Restart();
             foreach (var p in array) sum += p.TarifCoast;
             sw.Stop();
-            results.ArraySeqReadTime = sw.ElapsedMilliseconds;
+            results.ArraySeqReadTime = sw.Elapsed.TotalMilliseconds;
 
             sw.Restart();
             for (int i = 0; i < Count; i++)
@@ -56,7 +56,7 @@ namespace LB1OOP
                 var p = array[idx];
             }
             sw.Stop();
-            results.ArrayRandomReadTime = sw.ElapsedMilliseconds;
+            results.ArrayRandomReadTime = sw.Elapsed.TotalMilliseconds;
 
             return results;
         }
@@ -84,11 +84,11 @@ namespace LB1OOP
 
     public class TestResults
     {
-        public long ListAddTime { get; set; }
-        public long ListSeqReadTime { get; set; }
-        public long ListRandomReadTime { get; set; }
-        public long ArrayAddTime { get; set; }
-        public long ArraySeqReadTime { get; set; }
-        public long ArrayRandomReadTime { get; set; }
+        public double ListAddTime { get; set; }
+        public double ListSeqReadTime { get; set; }
+        public double ListRandomReadTime { get; set; }
+        public double ArrayAddTime { get; set; }
+        public double ArraySeqReadTime { get; set; }
+        public double ArrayRandomReadTime { get; set; }
     }
 }

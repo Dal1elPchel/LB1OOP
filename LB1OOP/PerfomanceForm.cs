@@ -28,7 +28,7 @@ namespace LB1OOP
             AddRow("Случайное чтение", results.ListRandomReadTime, results.ArrayRandomReadTime);
         }
 
-        private void AddRow(string op, long listTime, long arrayTime)
+        private void AddRow(string op, double listTime, double arrayTime)
         {
             ListViewItem item = new ListViewItem(op);
             item.SubItems.Add(listTime.ToString());

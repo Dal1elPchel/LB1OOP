@@ -36,7 +36,7 @@
     </TypeIdentifier>
   </Class>
   <Class Name="LB1OOP.CustomDivideByZeroException">
-    <Position X="8.75" Y="2" Width="4" />
+    <Position X="9.25" Y="2" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>CustomDivideByZeroException.cs</FileName>

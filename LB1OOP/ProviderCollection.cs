@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LB1OOP
 {
-    public delegate void ProviderCollectionChangedEventHandler(Provider provider, string action);
+    public delegate void ProviderCollectionChangedEventHandler(Provider provider, string message);
     public class ProviderCollection
     {
         private List<Provider> _providers;
@@ -49,11 +49,6 @@ namespace LB1OOP
         }
         
         public IEnumerable<Provider> GetAll()
-        {
-            return _providers;
-        }
-
-        public List<Provider> GetInternalList()
         {
             return _providers;
         }

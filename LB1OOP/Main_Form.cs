@@ -19,7 +19,6 @@ namespace LB1OOP
         private const uint MB_ICONERROR = 0x00000010;
         private const uint MB_ICONINFORMATION = 0x00000040;
 
-        private Create_Form create_Form;
         private Change_Form change_Form;
 
         private Provider _provider;

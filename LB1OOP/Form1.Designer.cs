@@ -122,6 +122,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.MinimumSize = new System.Drawing.Size(863, 683);
             this.Name = "Hello_Form";
             this.Text = "Здравствуйте!";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.listView1 = new System.Windows.Forms.ListView();
-            this.run_button = new System.Windows.Forms.Button();
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader3 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.run_button = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
             // 
+            this.listView1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.columnHeader1,
             this.columnHeader2,
@@ -48,16 +49,6 @@
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
-            // 
-            // run_button
-            // 
-            this.run_button.Location = new System.Drawing.Point(272, 328);
-            this.run_button.Name = "run_button";
-            this.run_button.Size = new System.Drawing.Size(169, 47);
-            this.run_button.TabIndex = 1;
-            this.run_button.Text = "Запустить тест";
-            this.run_button.UseVisualStyleBackColor = true;
-            this.run_button.Click += new System.EventHandler(this.run_button_Click);
             // 
             // columnHeader1
             // 
@@ -74,6 +65,17 @@
             this.columnHeader3.Text = "Array (мс)";
             this.columnHeader3.Width = 100;
             // 
+            // run_button
+            // 
+            this.run_button.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.run_button.Location = new System.Drawing.Point(272, 328);
+            this.run_button.Name = "run_button";
+            this.run_button.Size = new System.Drawing.Size(169, 47);
+            this.run_button.TabIndex = 1;
+            this.run_button.Text = "Запустить тест";
+            this.run_button.UseVisualStyleBackColor = true;
+            this.run_button.Click += new System.EventHandler(this.run_button_Click);
+            // 
             // PerfomanceForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -81,6 +83,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.run_button);
             this.Controls.Add(this.listView1);
+            this.MinimumSize = new System.Drawing.Size(818, 497);
             this.Name = "PerfomanceForm";
             this.Text = "PerfomanceForm";
             this.ResumeLayout(false);

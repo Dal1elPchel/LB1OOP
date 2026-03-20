@@ -83,9 +83,9 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.Location = new System.Drawing.Point(154, 327);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(197, 25);
+            this.label8.Size = new System.Drawing.Size(247, 25);
             this.label8.TabIndex = 46;
-            this.label8.Text = "Стоимость тарифа";
+            this.label8.Text = "Стоимость тарифа (руб)";
             // 
             // tarifNameTextBox
             // 
@@ -137,9 +137,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(154, 199);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(194, 25);
+            this.label5.Size = new System.Drawing.Size(265, 25);
             this.label5.TabIndex = 40;
-            this.label5.Text = "Площадь покрытия";
+            this.label5.Text = "Площадь покрытия (км кв)";
             // 
             // speedLimitTextBox
             // 
@@ -155,9 +155,9 @@
             this.speedLimitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.speedLimitLabel.Location = new System.Drawing.Point(154, 157);
             this.speedLimitLabel.Name = "speedLimitLabel";
-            this.speedLimitLabel.Size = new System.Drawing.Size(169, 25);
+            this.speedLimitLabel.Size = new System.Drawing.Size(276, 25);
             this.speedLimitLabel.TabIndex = 38;
-            this.speedLimitLabel.Text = "Лимит скорости";
+            this.speedLimitLabel.Text = "Лимит скорости (мбит/сек)";
             // 
             // userCountTextBox
             // 
@@ -173,9 +173,9 @@
             this.userCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.userCountLabel.Location = new System.Drawing.Point(154, 117);
             this.userCountLabel.Name = "userCountLabel";
-            this.userCountLabel.Size = new System.Drawing.Size(271, 25);
+            this.userCountLabel.Size = new System.Drawing.Size(324, 25);
             this.userCountLabel.TabIndex = 36;
-            this.userCountLabel.Text = "Количество пользователей";
+            this.userCountLabel.Text = "Количество пользователей (чел)";
             // 
             // NameTextBox
             // 

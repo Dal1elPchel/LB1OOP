@@ -10,13 +10,13 @@ namespace LB1OOP.Tests
         {
             Provider provider = new Provider();
 
-            Assert.AreEqual("Undefined", provider.Name);
+            Assert.AreEqual("Не задан", provider.Name);
             Assert.AreEqual(0, provider.UserCount);
-            Assert.AreEqual(0, provider.SpeedLimit);
-            Assert.AreEqual(0, provider.Area);
+            Assert.AreEqual(3, provider.SpeedLimit);
+            Assert.AreEqual(100, provider.Area);
             Assert.AreEqual(0, provider.ContractNumber);
-            Assert.AreEqual("Undefined", provider.TarifName);
-            Assert.AreEqual(0, provider.TarifCoast);
+            Assert.AreEqual("Не задан", provider.TarifName);
+            Assert.AreEqual(100, provider.TarifCoast);
         }
 
         [TestMethod]

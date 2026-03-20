@@ -17,7 +17,6 @@ namespace LB1OOP
         private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);
         private const uint MB_OK = 0x00000000;
         private const uint MB_ICONERROR = 0x00000010;
-        private const uint MB_ICONINFORMATION = 0x00000040;
 
         public Provider CreatedProvider { get; private set; }
         public Create_Form()
@@ -28,13 +27,13 @@ namespace LB1OOP
         private void DisplayProviderInfo()
         {
 
-            NameTextBox.Text = "";
+            NameTextBox.Text = "Не задан";
             userCountTextBox.Text = "0";
-            speedLimitTextBox.Text = "0";
-            areaTextBox.Text = "0";
+            speedLimitTextBox.Text = "Не задан";
+            areaTextBox.Text = "100";
             contractNumberTextBox.Text = "0";
-            tarifNameTextBox.Text = "Undefined";
-            tarifCoastTextBox.Text = "0";
+            tarifNameTextBox.Text = "Не задан";
+            tarifCoastTextBox.Text = "100";
 
         }
 
@@ -42,13 +41,14 @@ namespace LB1OOP
         {
             try
             {
-                string name = NameTextBox.Text;
-                int userCount = int.Parse(userCountTextBox.Text);
-                float speedLimit = float.Parse(speedLimitTextBox.Text);
-                float area = float.Parse(areaTextBox.Text);
-                int contract = int.Parse(contractNumberTextBox.Text);
-                string tarif = tarifNameTextBox.Text;
-                float tarifCoast = float.Parse(tarifCoastTextBox.Text);
+                string name = NameTextBox.Text.Trim();
+                int userCount = int.Parse(userCountTextBox.Text.Trim());
+                float speedLimit = speedLimitTextBox.Text.Trim() == "Не задан" || speedLimitTextBox.Text.Trim() == "0"
+                    ? 0 : float.Parse(speedLimitTextBox.Text.Trim());
+                float area = float.Parse(areaTextBox.Text.Trim());
+                int contract = int.Parse(contractNumberTextBox.Text.Trim());
+                string tarif = tarifNameTextBox.Text.Trim();
+                float tarifCoast = float.Parse(tarifCoastTextBox.Text.Trim());
 
                 CreatedProvider = new Provider(name, tarifCoast, userCount, speedLimit, area, contract, tarif);
                 this.DialogResult = DialogResult.OK;

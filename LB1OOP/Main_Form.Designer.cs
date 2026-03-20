@@ -53,6 +53,8 @@
             this.remove_button = new System.Windows.Forms.Button();
             this.test_button = new System.Windows.Forms.Button();
             this.listBoxEvents = new System.Windows.Forms.ListBox();
+            this.UserCountHexTextBox = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -128,9 +130,9 @@
             this.speedLimitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.speedLimitLabel.Location = new System.Drawing.Point(23, 175);
             this.speedLimitLabel.Name = "speedLimitLabel";
-            this.speedLimitLabel.Size = new System.Drawing.Size(169, 25);
+            this.speedLimitLabel.Size = new System.Drawing.Size(271, 25);
             this.speedLimitLabel.TabIndex = 6;
-            this.speedLimitLabel.Text = "Лимит скорости";
+            this.speedLimitLabel.Text = "Лимит скорости(мбит/сек)";
             // 
             // areaTextBox
             // 
@@ -147,9 +149,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(23, 217);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(194, 25);
+            this.label5.Size = new System.Drawing.Size(265, 25);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Площадь покрытия";
+            this.label5.Text = "Площадь покрытия (км кв)";
             // 
             // contractNumberTextBox
             // 
@@ -204,13 +206,13 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.Location = new System.Drawing.Point(23, 345);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(197, 25);
+            this.label8.Size = new System.Drawing.Size(247, 25);
             this.label8.TabIndex = 14;
-            this.label8.Text = "Стоимость тарифа";
+            this.label8.Text = "Стоимость тарифа (руб)";
             // 
             // change_button
             // 
-            this.change_button.Location = new System.Drawing.Point(58, 388);
+            this.change_button.Location = new System.Drawing.Point(58, 443);
             this.change_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.change_button.Name = "change_button";
             this.change_button.Size = new System.Drawing.Size(129, 45);
@@ -221,7 +223,7 @@
             // 
             // ExitButton
             // 
-            this.ExitButton.Location = new System.Drawing.Point(218, 528);
+            this.ExitButton.Location = new System.Drawing.Point(218, 583);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ExitButton.Name = "ExitButton";
             this.ExitButton.Size = new System.Drawing.Size(117, 30);
@@ -232,7 +234,7 @@
             // 
             // btnTestException
             // 
-            this.btnTestException.Location = new System.Drawing.Point(279, 388);
+            this.btnTestException.Location = new System.Drawing.Point(279, 443);
             this.btnTestException.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTestException.Name = "btnTestException";
             this.btnTestException.Size = new System.Drawing.Size(179, 45);
@@ -253,7 +255,7 @@
             // 
             // add_button
             // 
-            this.add_button.Location = new System.Drawing.Point(70, 453);
+            this.add_button.Location = new System.Drawing.Point(70, 508);
             this.add_button.Name = "add_button";
             this.add_button.Size = new System.Drawing.Size(162, 28);
             this.add_button.TabIndex = 20;
@@ -263,7 +265,7 @@
             // 
             // remove_button
             // 
-            this.remove_button.Location = new System.Drawing.Point(269, 451);
+            this.remove_button.Location = new System.Drawing.Point(269, 506);
             this.remove_button.Name = "remove_button";
             this.remove_button.Size = new System.Drawing.Size(166, 30);
             this.remove_button.TabIndex = 21;
@@ -273,7 +275,7 @@
             // 
             // test_button
             // 
-            this.test_button.Location = new System.Drawing.Point(120, 488);
+            this.test_button.Location = new System.Drawing.Point(120, 543);
             this.test_button.Name = "test_button";
             this.test_button.Size = new System.Drawing.Size(300, 35);
             this.test_button.TabIndex = 22;
@@ -285,16 +287,37 @@
             // 
             this.listBoxEvents.FormattingEnabled = true;
             this.listBoxEvents.ItemHeight = 16;
-            this.listBoxEvents.Location = new System.Drawing.Point(498, 301);
+            this.listBoxEvents.Location = new System.Drawing.Point(498, 398);
             this.listBoxEvents.Name = "listBoxEvents";
             this.listBoxEvents.Size = new System.Drawing.Size(403, 212);
             this.listBoxEvents.TabIndex = 23;
+            // 
+            // UserCountHexTextBox
+            // 
+            this.UserCountHexTextBox.Location = new System.Drawing.Point(345, 401);
+            this.UserCountHexTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.UserCountHexTextBox.Name = "UserCountHexTextBox";
+            this.UserCountHexTextBox.ReadOnly = true;
+            this.UserCountHexTextBox.Size = new System.Drawing.Size(126, 22);
+            this.UserCountHexTextBox.TabIndex = 25;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label3.Location = new System.Drawing.Point(23, 398);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(283, 25);
+            this.label3.TabIndex = 24;
+            this.label3.Text = "Кол-во пользователей (HEX)";
             // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(986, 587);
+            this.ClientSize = new System.Drawing.Size(986, 665);
+            this.Controls.Add(this.UserCountHexTextBox);
+            this.Controls.Add(this.label3);
             this.Controls.Add(this.listBoxEvents);
             this.Controls.Add(this.test_button);
             this.Controls.Add(this.remove_button);
@@ -354,5 +377,7 @@
         private System.Windows.Forms.Button remove_button;
         private System.Windows.Forms.Button test_button;
         private System.Windows.Forms.ListBox listBoxEvents;
+        private System.Windows.Forms.TextBox UserCountHexTextBox;
+        private System.Windows.Forms.Label label3;
     }
 }

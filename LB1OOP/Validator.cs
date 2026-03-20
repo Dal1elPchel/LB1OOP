@@ -38,7 +38,7 @@ namespace LB1OOP
         /// </remarks>
         public static void ValidateTarifName(string tarifName)
         {
-            if (tarifName != "Undefined" && (tarifName.Length < 2 || tarifName.Length > 30))
+            if (tarifName != "Не задан" && (tarifName.Length < 2 || tarifName.Length > 30))
             {
                 throw new ArgumentException("Название тарифа должно содержать от 2 до 30 символов", nameof(tarifName));
             }
@@ -53,9 +53,9 @@ namespace LB1OOP
         /// </exception>
         public static void ValidateTarifCoast(float tarifCoast)
         {
-            if (tarifCoast < 0 || tarifCoast > 100_000)
+            if (tarifCoast < 100 || tarifCoast > 100_000)
             {
-                throw new ArgumentOutOfRangeException(nameof(tarifCoast), "Стоимость тарифа должна быть от 0 до 100 000");
+                throw new ArgumentOutOfRangeException(nameof(tarifCoast), "Стоимость тарифа должна быть от 100 до 100 000");
             }
         }
 

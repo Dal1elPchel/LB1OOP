@@ -60,11 +60,12 @@ namespace LB1OOP
 
             NameTextBox.Text = _provider.Name;
             userCountTextBox.Text = _provider.UserCount.ToString();
-            speedLimitTextBox.Text = _provider.SpeedLimit.ToString();
+            speedLimitTextBox.Text = _provider.SpeedLimit != 0 ? _provider.SpeedLimit.ToString() : "Не задан";
             areaTextBox.Text = _provider.Area.ToString();
             contractNumberTextBox.Text = _provider.ContractNumber.ToString();
             tarifNameTextBox.Text = _provider.TarifName.ToString();
             tarifCoastTextBox.Text = _provider.TarifCoast.ToString();
+            UserCountHexTextBox.Text = _provider.GetUserCountInHex();
 
         }
 

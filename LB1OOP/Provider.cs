@@ -134,12 +134,12 @@ namespace LB1OOP
         public Provider()
         {
             this._userCount = 0;
-            this._speedLimit = 0;
-            this._area = 0;
+            this._speedLimit = 3;
+            this._area = 100;
             this._contractNumber = 0;
-            this._tarifName = "Undefined";
-            this._tarifCoast = 0;
-            this._name = "Undefined";
+            this._tarifName = "Не задан";
+            this._tarifCoast = 100;
+            this._name = "Не задан";
 
             AddNewProvider(this);
         }
@@ -149,17 +149,17 @@ namespace LB1OOP
         /// </summary>
         /// <param name="name">Название провайдера.</param>
         /// <exception cref="ArgumentException">Выбрасывается при пустом значении параметра.</exception>
-        public Provider(string name = "Undefined")
+        public Provider(string name = "Не задан")
         {
             Validator.ValidateName(name);
 
             this._name = name;
             this._userCount = 0;
-            this._speedLimit = 0;
-            this._area = 0;
+            this._speedLimit = 3;
+            this._area = 100;
             this._contractNumber = 0;
-            this._tarifName = "Undefined";
-            this._tarifCoast = 0;
+            this._tarifName = "Не задан";
+            this._tarifCoast = 100;
 
             AddNewProvider(this);
         }
@@ -170,7 +170,7 @@ namespace LB1OOP
         /// <param name="name">Название провайдера.</param>
         /// <param name="tarifCoast">Стоимость тарифного плана.</param>
         /// <exception cref="ArgumentException">Выбрасывается при некорректных значениях параметров.</exception>
-        public Provider(string name = "Undefined", float tarifCoast = 0)
+        public Provider(string name = "Не задан", float tarifCoast = 100)
         {
             Validator.ValidateName(name);
             Validator.ValidateTarifCoast(tarifCoast);
@@ -178,10 +178,10 @@ namespace LB1OOP
             this._name = name;
             this._tarifCoast = tarifCoast;
             this._userCount = 0;
-            this._speedLimit = 0;
-            this._area = 0;
+            this._speedLimit = 3;
+            this._area = 100;
             this._contractNumber = 0;
-            this._tarifName = "Undefined";
+            this._tarifName = "Не задан";
 
             AddNewProvider(this);
         }
@@ -197,9 +197,9 @@ namespace LB1OOP
         /// <param name="contractNumber">Номер договора.</param>
         /// <param name="tarifName">Название тарифа.</param>
         /// <exception cref="ArgumentException">Выбрасывается при некорректных значениях параметров.</exception>
-        public Provider(string name = "Undefined", float tarifCoast = 0,
-            int userCount = 0, float speedLimit = 0, float area = 0,
-            int contractNumber = 0, string tarifName = "Undefined")
+        public Provider(string name = "Не задан", float tarifCoast = 100,
+            int userCount = 0, float speedLimit = 3, float area = 100,
+            int contractNumber = 0, string tarifName = "Не задан")
         {
             Validator.ValidateName(name);
             Validator.ValidateTarifName(tarifName);

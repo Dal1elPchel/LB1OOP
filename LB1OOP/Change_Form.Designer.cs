@@ -64,9 +64,9 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.Location = new System.Drawing.Point(32, 318);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(247, 25);
+            this.label8.Size = new System.Drawing.Size(258, 25);
             this.label8.TabIndex = 29;
-            this.label8.Text = "Стоимость тарифа (руб)";
+            this.label8.Text = "Стоимость тарифа (руб.):";
             // 
             // tarifNameTextBox
             // 
@@ -84,9 +84,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.Location = new System.Drawing.Point(32, 278);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(177, 25);
+            this.label7.Size = new System.Drawing.Size(183, 25);
             this.label7.TabIndex = 27;
-            this.label7.Text = "Название тарифа";
+            this.label7.Text = "Название тарифа:";
             // 
             // contractNumberTextBox
             // 
@@ -104,9 +104,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.Location = new System.Drawing.Point(32, 231);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(164, 25);
+            this.label6.Size = new System.Drawing.Size(170, 25);
             this.label6.TabIndex = 25;
-            this.label6.Text = "Номер договора";
+            this.label6.Text = "Номер договора:";
             // 
             // areaTextBox
             // 
@@ -124,9 +124,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(32, 190);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(265, 25);
+            this.label5.Size = new System.Drawing.Size(281, 25);
             this.label5.TabIndex = 23;
-            this.label5.Text = "Площадь покрытия (км кв)";
+            this.label5.Text = "Площадь покрытия (км. кв.):";
             // 
             // speedLimitTextBox
             // 
@@ -144,9 +144,9 @@
             this.speedLimitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.speedLimitLabel.Location = new System.Drawing.Point(32, 148);
             this.speedLimitLabel.Name = "speedLimitLabel";
-            this.speedLimitLabel.Size = new System.Drawing.Size(276, 25);
+            this.speedLimitLabel.Size = new System.Drawing.Size(282, 25);
             this.speedLimitLabel.TabIndex = 21;
-            this.speedLimitLabel.Text = "Лимит скорости (мбит/сек)";
+            this.speedLimitLabel.Text = "Лимит скорости (Mбит/сек):";
             // 
             // userCountTextBox
             // 
@@ -164,9 +164,9 @@
             this.userCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.userCountLabel.Location = new System.Drawing.Point(32, 108);
             this.userCountLabel.Name = "userCountLabel";
-            this.userCountLabel.Size = new System.Drawing.Size(324, 25);
+            this.userCountLabel.Size = new System.Drawing.Size(335, 25);
             this.userCountLabel.TabIndex = 19;
-            this.userCountLabel.Text = "Количество пользователей (чел)";
+            this.userCountLabel.Text = "Количество пользователей (чел.):";
             // 
             // NameTextBox
             // 
@@ -184,9 +184,9 @@
             this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NameLabel.Location = new System.Drawing.Point(32, 68);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(157, 25);
+            this.NameLabel.Size = new System.Drawing.Size(163, 25);
             this.NameLabel.TabIndex = 17;
-            this.NameLabel.Text = "Имя оператора";
+            this.NameLabel.Text = "Имя оператора:";
             // 
             // label2
             // 

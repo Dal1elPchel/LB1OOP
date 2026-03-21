@@ -83,9 +83,9 @@
             this.NameLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.NameLabel.Location = new System.Drawing.Point(23, 95);
             this.NameLabel.Name = "NameLabel";
-            this.NameLabel.Size = new System.Drawing.Size(157, 25);
+            this.NameLabel.Size = new System.Drawing.Size(163, 25);
             this.NameLabel.TabIndex = 2;
-            this.NameLabel.Text = "Имя оператора";
+            this.NameLabel.Text = "Имя оператора:";
             // 
             // NameTextBox
             // 
@@ -111,9 +111,9 @@
             this.userCountLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.userCountLabel.Location = new System.Drawing.Point(23, 135);
             this.userCountLabel.Name = "userCountLabel";
-            this.userCountLabel.Size = new System.Drawing.Size(324, 25);
+            this.userCountLabel.Size = new System.Drawing.Size(335, 25);
             this.userCountLabel.TabIndex = 4;
-            this.userCountLabel.Text = "Количество пользователей (чел)";
+            this.userCountLabel.Text = "Количество пользователей (чел.):";
             // 
             // speedLimitTextBox
             // 
@@ -130,9 +130,10 @@
             this.speedLimitLabel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.speedLimitLabel.Location = new System.Drawing.Point(23, 175);
             this.speedLimitLabel.Name = "speedLimitLabel";
-            this.speedLimitLabel.Size = new System.Drawing.Size(271, 25);
+            this.speedLimitLabel.Size = new System.Drawing.Size(282, 25);
             this.speedLimitLabel.TabIndex = 6;
-            this.speedLimitLabel.Text = "Лимит скорости(мбит/сек)";
+            this.speedLimitLabel.Text = "Лимит скорости(Mбит/сек.):";
+            this.speedLimitLabel.Click += new System.EventHandler(this.speedLimitLabel_Click);
             // 
             // areaTextBox
             // 
@@ -149,9 +150,9 @@
             this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label5.Location = new System.Drawing.Point(23, 217);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(265, 25);
+            this.label5.Size = new System.Drawing.Size(281, 25);
             this.label5.TabIndex = 8;
-            this.label5.Text = "Площадь покрытия (км кв)";
+            this.label5.Text = "Площадь покрытия (км. кв.):";
             // 
             // contractNumberTextBox
             // 
@@ -168,9 +169,9 @@
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label6.Location = new System.Drawing.Point(23, 258);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(164, 25);
+            this.label6.Size = new System.Drawing.Size(170, 25);
             this.label6.TabIndex = 10;
-            this.label6.Text = "Номер договора";
+            this.label6.Text = "Номер договора:";
             // 
             // tarifNameTextBox
             // 
@@ -187,9 +188,9 @@
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label7.Location = new System.Drawing.Point(23, 305);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(177, 25);
+            this.label7.Size = new System.Drawing.Size(183, 25);
             this.label7.TabIndex = 12;
-            this.label7.Text = "Название тарифа";
+            this.label7.Text = "Название тарифа:";
             // 
             // tarifCoastTextBox
             // 
@@ -206,14 +207,14 @@
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label8.Location = new System.Drawing.Point(23, 345);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(247, 25);
+            this.label8.Size = new System.Drawing.Size(258, 25);
             this.label8.TabIndex = 14;
-            this.label8.Text = "Стоимость тарифа (руб)";
+            this.label8.Text = "Стоимость тарифа (руб.):";
             // 
             // change_button
             // 
-            this.change_button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.change_button.Location = new System.Drawing.Point(58, 443);
+            this.change_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.change_button.Location = new System.Drawing.Point(58, 515);
             this.change_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.change_button.Name = "change_button";
             this.change_button.Size = new System.Drawing.Size(129, 45);
@@ -224,11 +225,11 @@
             // 
             // ExitButton
             // 
-            this.ExitButton.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.ExitButton.Location = new System.Drawing.Point(218, 583);
+            this.ExitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.ExitButton.Location = new System.Drawing.Point(381, 565);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(117, 30);
+            this.ExitButton.Size = new System.Drawing.Size(169, 45);
             this.ExitButton.TabIndex = 17;
             this.ExitButton.Text = "Выход";
             this.ExitButton.UseVisualStyleBackColor = true;
@@ -236,11 +237,11 @@
             // 
             // btnTestException
             // 
-            this.btnTestException.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnTestException.Location = new System.Drawing.Point(279, 443);
+            this.btnTestException.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnTestException.Location = new System.Drawing.Point(218, 515);
             this.btnTestException.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTestException.Name = "btnTestException";
-            this.btnTestException.Size = new System.Drawing.Size(179, 45);
+            this.btnTestException.Size = new System.Drawing.Size(142, 45);
             this.btnTestException.TabIndex = 18;
             this.btnTestException.Text = "Рассчитать плотность абонентов";
             this.btnTestException.UseVisualStyleBackColor = true;
@@ -248,21 +249,23 @@
             // 
             // listBoxProviders
             // 
-            this.listBoxProviders.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.listBoxProviders.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxProviders.FormattingEnabled = true;
             this.listBoxProviders.ItemHeight = 16;
-            this.listBoxProviders.Location = new System.Drawing.Point(668, 26);
+            this.listBoxProviders.Location = new System.Drawing.Point(609, 39);
+            this.listBoxProviders.Margin = new System.Windows.Forms.Padding(30);
             this.listBoxProviders.Name = "listBoxProviders";
-            this.listBoxProviders.Size = new System.Drawing.Size(218, 244);
+            this.listBoxProviders.Size = new System.Drawing.Size(403, 212);
             this.listBoxProviders.TabIndex = 19;
             this.listBoxProviders.SelectedIndexChanged += new System.EventHandler(this.listBoxProviders_SelectedIndexChanged);
             // 
             // add_button
             // 
-            this.add_button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.add_button.Location = new System.Drawing.Point(70, 508);
+            this.add_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.add_button.Location = new System.Drawing.Point(58, 565);
             this.add_button.Name = "add_button";
-            this.add_button.Size = new System.Drawing.Size(162, 28);
+            this.add_button.Size = new System.Drawing.Size(129, 45);
             this.add_button.TabIndex = 20;
             this.add_button.Text = "Добавить новый";
             this.add_button.UseVisualStyleBackColor = true;
@@ -270,10 +273,10 @@
             // 
             // remove_button
             // 
-            this.remove_button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.remove_button.Location = new System.Drawing.Point(269, 506);
+            this.remove_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.remove_button.Location = new System.Drawing.Point(218, 565);
             this.remove_button.Name = "remove_button";
-            this.remove_button.Size = new System.Drawing.Size(166, 30);
+            this.remove_button.Size = new System.Drawing.Size(142, 45);
             this.remove_button.TabIndex = 21;
             this.remove_button.Text = "Удалить выбранный";
             this.remove_button.UseVisualStyleBackColor = true;
@@ -281,10 +284,10 @@
             // 
             // test_button
             // 
-            this.test_button.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.test_button.Location = new System.Drawing.Point(120, 543);
+            this.test_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.test_button.Location = new System.Drawing.Point(381, 515);
             this.test_button.Name = "test_button";
-            this.test_button.Size = new System.Drawing.Size(300, 35);
+            this.test_button.Size = new System.Drawing.Size(169, 45);
             this.test_button.TabIndex = 22;
             this.test_button.Text = "Тест производительности";
             this.test_button.UseVisualStyleBackColor = true;
@@ -292,10 +295,12 @@
             // 
             // listBoxEvents
             // 
-            this.listBoxEvents.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.listBoxEvents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxEvents.FormattingEnabled = true;
             this.listBoxEvents.ItemHeight = 16;
-            this.listBoxEvents.Location = new System.Drawing.Point(573, 398);
+            this.listBoxEvents.Location = new System.Drawing.Point(609, 398);
             this.listBoxEvents.Name = "listBoxEvents";
             this.listBoxEvents.Size = new System.Drawing.Size(403, 212);
             this.listBoxEvents.TabIndex = 23;
@@ -315,9 +320,9 @@
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.label3.Location = new System.Drawing.Point(23, 398);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(283, 25);
+            this.label3.Size = new System.Drawing.Size(289, 25);
             this.label3.TabIndex = 24;
-            this.label3.Text = "Кол-во пользователей (HEX)";
+            this.label3.Text = "Кол-во пользователей (HEX):";
             // 
             // Main_Form
             // 

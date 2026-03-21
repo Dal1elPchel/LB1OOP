@@ -208,5 +208,10 @@ namespace LB1OOP
                 form.ShowDialog();
             }
         }
+
+        private void speedLimitLabel_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

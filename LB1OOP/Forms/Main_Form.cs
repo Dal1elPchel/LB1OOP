@@ -1,5 +1,6 @@
 ﻿using LB1OOP.Factories;
 using LB1OOP.Interfaces;
+using LB1OOP.Visitors;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -72,7 +73,6 @@ namespace LB1OOP
         /// </summary>
         private void DisplayProviderInfo()
         {
-
             NameTextBox.Text = _provider.Name.Trim();
             userCountTextBox.Text = _provider.UserCount.ToString().Trim();
             speedLimitTextBox.Text = _provider.SpeedLimit == 0 ? "Не задан" : _provider.SpeedLimit.ToString().Trim();
@@ -80,7 +80,9 @@ namespace LB1OOP
             contractNumberTextBox.Text = _provider.ContractNumber.ToString().Trim();
             tarifNameTextBox.Text = _provider.TarifName.ToString().Trim();
             tarifCoastTextBox.Text = _provider.TarifCoast.ToString().Trim();
-
+            HexVisitor visitor = new HexVisitor();
+            visitor.Visit(_provider);
+            UserCountHextextBox.Text = visitor.Result.ToString().Trim();
         }
 
         /// <summary>
@@ -154,7 +156,9 @@ namespace LB1OOP
         {
             try
             {
-                float result = _provider.CalculateUserDensity();
+                DensityVisitor visitor = new DensityVisitor();
+                visitor.Visit(_provider);
+                float result = visitor.Result;
                 MessageBox(this.Handle, $"Результат: {result:F2} абонентов/км²",
                     "Результат",
                     MB_OK | MB_ICONINFORMATION);

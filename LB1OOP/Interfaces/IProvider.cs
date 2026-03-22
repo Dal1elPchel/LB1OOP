@@ -18,7 +18,6 @@ namespace LB1OOP.Interfaces
         string TarifName { get; set; }
         float TarifCoast { get; set; }
 
-        string GetUserCountInHex();
-        float CalculateUserDensity();
+        void Accept(IProviderVisitor visitor);
     }
 }

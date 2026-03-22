@@ -81,12 +81,15 @@
     <Compile Include="Forms\PerfomanceForm.Designer.cs">
       <DependentUpon>PerfomanceForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Interfaces\IProviderVisitor.cs" />
     <Compile Include="Testing\PerfomanceTester.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Models\InternetProvider.cs" />
     <Compile Include="Models\ProviderList.cs" />
     <Compile Include="Validation\Validator.cs" />
+    <Compile Include="Visitors\DensityVisitor.cs" />
+    <Compile Include="Visitors\HexVisitor.cs" />
     <EmbeddedResource Include="Forms\Change_Form.resx">
       <DependentUpon>Change_Form.cs</DependentUpon>
     </EmbeddedResource>

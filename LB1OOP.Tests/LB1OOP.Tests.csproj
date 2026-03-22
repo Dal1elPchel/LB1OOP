@@ -24,7 +24,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\LB1OOP\LB1OOP.csproj" />
+    <ProjectReference Include="..\LB1OOP\LBOOP.csproj" />
   </ItemGroup>
 
   <ItemGroup>

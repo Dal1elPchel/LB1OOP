@@ -55,6 +55,12 @@
             this.listBoxEvents = new System.Windows.Forms.ListBox();
             this.UserCountHextextBox = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
+            this.DensityTextBox = new System.Windows.Forms.TextBox();
+            this.SumButton = new System.Windows.Forms.Button();
+            this.ServerTimeButton = new System.Windows.Forms.Button();
+            this.sumTextBox = new System.Windows.Forms.TextBox();
+            this.serverTimeTextBox = new System.Windows.Forms.TextBox();
+            this.runAllAsync = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -213,10 +219,10 @@
             // change_button
             // 
             this.change_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.change_button.Location = new System.Drawing.Point(58, 488);
+            this.change_button.Location = new System.Drawing.Point(191, 437);
             this.change_button.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.change_button.Name = "change_button";
-            this.change_button.Size = new System.Drawing.Size(129, 45);
+            this.change_button.Size = new System.Drawing.Size(167, 45);
             this.change_button.TabIndex = 16;
             this.change_button.Text = "Изменить";
             this.change_button.UseVisualStyleBackColor = true;
@@ -225,10 +231,10 @@
             // ExitButton
             // 
             this.ExitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ExitButton.Location = new System.Drawing.Point(355, 488);
+            this.ExitButton.Location = new System.Drawing.Point(537, 498);
             this.ExitButton.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.ExitButton.Name = "ExitButton";
-            this.ExitButton.Size = new System.Drawing.Size(162, 45);
+            this.ExitButton.Size = new System.Drawing.Size(167, 45);
             this.ExitButton.TabIndex = 17;
             this.ExitButton.Text = "Выход";
             this.ExitButton.UseVisualStyleBackColor = true;
@@ -237,10 +243,10 @@
             // btnTestException
             // 
             this.btnTestException.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnTestException.Location = new System.Drawing.Point(207, 488);
+            this.btnTestException.Location = new System.Drawing.Point(19, 498);
             this.btnTestException.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnTestException.Name = "btnTestException";
-            this.btnTestException.Size = new System.Drawing.Size(128, 45);
+            this.btnTestException.Size = new System.Drawing.Size(167, 45);
             this.btnTestException.TabIndex = 18;
             this.btnTestException.Text = "Рассчитать плотность абонентов";
             this.btnTestException.UseVisualStyleBackColor = true;
@@ -252,18 +258,18 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxProviders.FormattingEnabled = true;
             this.listBoxProviders.ItemHeight = 16;
-            this.listBoxProviders.Location = new System.Drawing.Point(586, 55);
+            this.listBoxProviders.Location = new System.Drawing.Point(631, 20);
             this.listBoxProviders.Name = "listBoxProviders";
-            this.listBoxProviders.Size = new System.Drawing.Size(480, 244);
+            this.listBoxProviders.Size = new System.Drawing.Size(439, 180);
             this.listBoxProviders.TabIndex = 19;
             this.listBoxProviders.SelectedIndexChanged += new System.EventHandler(this.listBoxProviders_SelectedIndexChanged);
             // 
             // add_button
             // 
             this.add_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.add_button.Location = new System.Drawing.Point(58, 538);
+            this.add_button.Location = new System.Drawing.Point(18, 437);
             this.add_button.Name = "add_button";
-            this.add_button.Size = new System.Drawing.Size(128, 45);
+            this.add_button.Size = new System.Drawing.Size(167, 45);
             this.add_button.TabIndex = 20;
             this.add_button.Text = "Добавить новый";
             this.add_button.UseVisualStyleBackColor = true;
@@ -272,9 +278,9 @@
             // remove_button
             // 
             this.remove_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.remove_button.Location = new System.Drawing.Point(207, 538);
+            this.remove_button.Location = new System.Drawing.Point(364, 437);
             this.remove_button.Name = "remove_button";
-            this.remove_button.Size = new System.Drawing.Size(128, 45);
+            this.remove_button.Size = new System.Drawing.Size(167, 45);
             this.remove_button.TabIndex = 21;
             this.remove_button.Text = "Удалить выбранный";
             this.remove_button.UseVisualStyleBackColor = true;
@@ -283,9 +289,9 @@
             // test_button
             // 
             this.test_button.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.test_button.Location = new System.Drawing.Point(355, 538);
+            this.test_button.Location = new System.Drawing.Point(537, 437);
             this.test_button.Name = "test_button";
-            this.test_button.Size = new System.Drawing.Size(162, 45);
+            this.test_button.Size = new System.Drawing.Size(167, 45);
             this.test_button.TabIndex = 22;
             this.test_button.Text = "Тест производительности";
             this.test_button.UseVisualStyleBackColor = true;
@@ -297,9 +303,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxEvents.FormattingEnabled = true;
             this.listBoxEvents.ItemHeight = 16;
-            this.listBoxEvents.Location = new System.Drawing.Point(586, 371);
+            this.listBoxEvents.Location = new System.Drawing.Point(631, 220);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(480, 212);
+            this.listBoxEvents.Size = new System.Drawing.Size(439, 180);
             this.listBoxEvents.TabIndex = 23;
             // 
             // UserCountHextextBox
@@ -321,12 +327,73 @@
             this.label3.TabIndex = 24;
             this.label3.Text = "Кол-во пользователей (HEX):";
             // 
+            // DensityTextBox
+            // 
+            this.DensityTextBox.Location = new System.Drawing.Point(18, 563);
+            this.DensityTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.DensityTextBox.Name = "DensityTextBox";
+            this.DensityTextBox.ReadOnly = true;
+            this.DensityTextBox.Size = new System.Drawing.Size(167, 22);
+            this.DensityTextBox.TabIndex = 26;
+            // 
+            // SumButton
+            // 
+            this.SumButton.Location = new System.Drawing.Point(191, 498);
+            this.SumButton.Name = "SumButton";
+            this.SumButton.Size = new System.Drawing.Size(167, 45);
+            this.SumButton.TabIndex = 27;
+            this.SumButton.Text = "Рассчитать сумму вектора";
+            this.SumButton.UseVisualStyleBackColor = true;
+            this.SumButton.Click += new System.EventHandler(this.SumButton_Click);
+            // 
+            // ServerTimeButton
+            // 
+            this.ServerTimeButton.Location = new System.Drawing.Point(364, 498);
+            this.ServerTimeButton.Name = "ServerTimeButton";
+            this.ServerTimeButton.Size = new System.Drawing.Size(167, 45);
+            this.ServerTimeButton.TabIndex = 28;
+            this.ServerTimeButton.Text = "Показать серверное время";
+            this.ServerTimeButton.UseVisualStyleBackColor = true;
+            this.ServerTimeButton.Click += new System.EventHandler(this.ServerTimeButton_Click);
+            // 
+            // sumTextBox
+            // 
+            this.sumTextBox.Location = new System.Drawing.Point(191, 563);
+            this.sumTextBox.Name = "sumTextBox";
+            this.sumTextBox.ReadOnly = true;
+            this.sumTextBox.Size = new System.Drawing.Size(167, 22);
+            this.sumTextBox.TabIndex = 29;
+            // 
+            // serverTimeTextBox
+            // 
+            this.serverTimeTextBox.Location = new System.Drawing.Point(364, 563);
+            this.serverTimeTextBox.Name = "serverTimeTextBox";
+            this.serverTimeTextBox.ReadOnly = true;
+            this.serverTimeTextBox.Size = new System.Drawing.Size(167, 22);
+            this.serverTimeTextBox.TabIndex = 30;
+            // 
+            // runAllAsync
+            // 
+            this.runAllAsync.Location = new System.Drawing.Point(537, 548);
+            this.runAllAsync.Name = "runAllAsync";
+            this.runAllAsync.Size = new System.Drawing.Size(167, 45);
+            this.runAllAsync.TabIndex = 31;
+            this.runAllAsync.Text = "Запустить все async методы";
+            this.runAllAsync.UseVisualStyleBackColor = true;
+            this.runAllAsync.Click += new System.EventHandler(this.runAllAsync_Click);
+            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1082, 674);
+            this.Controls.Add(this.runAllAsync);
+            this.Controls.Add(this.serverTimeTextBox);
+            this.Controls.Add(this.sumTextBox);
+            this.Controls.Add(this.ServerTimeButton);
+            this.Controls.Add(this.SumButton);
+            this.Controls.Add(this.DensityTextBox);
             this.Controls.Add(this.UserCountHextextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listBoxEvents);
@@ -392,5 +459,11 @@
         private System.Windows.Forms.ListBox listBoxEvents;
         private System.Windows.Forms.TextBox UserCountHextextBox;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox DensityTextBox;
+        private System.Windows.Forms.Button SumButton;
+        private System.Windows.Forms.Button ServerTimeButton;
+        private System.Windows.Forms.TextBox sumTextBox;
+        private System.Windows.Forms.TextBox serverTimeTextBox;
+        private System.Windows.Forms.Button runAllAsync;
     }
 }

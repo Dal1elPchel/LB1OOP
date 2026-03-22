@@ -152,16 +152,12 @@ namespace LB1OOP
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Объект <see cref="EventArgs"/>, содержащий данные события.</param>
-        private void btnTestException_Click_1(object sender, EventArgs e)
+        private async void btnTestException_Click_1(object sender, EventArgs e)
         {
             try
             {
-                DensityVisitor visitor = new DensityVisitor();
-                visitor.Visit(_provider);
-                float result = visitor.Result;
-                MessageBox(this.Handle, $"Результат: {result:F2} абонентов/км²",
-                    "Результат",
-                    MB_OK | MB_ICONINFORMATION);
+                float result = await getDensity();
+                DensityTextBox.Text = $"{result:F2} абонентов/км²";
 
             }
             catch (CustomDivideByZeroException ex)
@@ -229,7 +225,7 @@ namespace LB1OOP
                 MessageBox(this.Handle, $"Неизвестный тип ошибки!",
                     "Ошибка",
                     MB_OK | MB_ICONERROR);
-            }         
+            }
         }
         private void listBoxProviders_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -239,7 +235,7 @@ namespace LB1OOP
                 _provider = null;
                 return;
             }
-            
+
             string selectedName = listBoxProviders
                 .SelectedItem.ToString();
 
@@ -254,10 +250,71 @@ namespace LB1OOP
 
         private void test_button_Click(object sender, EventArgs e)
         {
-            using (var form = new PerfomanceForm()) 
+            using (var form = new PerfomanceForm())
             {
                 form.ShowDialog();
             }
+        }
+
+        private async void SumButton_Click(object sender, EventArgs e)
+        {
+            long sumTask = await getVectorSum();
+            sumTextBox.Text = sumTask.ToString();
+        }
+
+        private async void ServerTimeButton_Click(object sender, EventArgs e)
+        {
+            string serverTask = await getServerTime();
+            serverTimeTextBox.Text = serverTask;
+        }
+
+        private async Task<float> getDensity()
+        {
+            float result = await Task.Run(() =>
+            {
+                DensityVisitor visitor = new DensityVisitor();
+                visitor.Visit(_provider);
+                return visitor.Result;
+            });
+            return result;
+        }
+
+        private async Task<long> getVectorSum()
+        {
+            int size_vector = 10_000_000;
+            int[] vector = new int[size_vector];
+            Random rand = new Random();
+
+            for (int i = 0; i < size_vector; i++)
+            {
+                vector[i] = rand.Next();
+            }
+
+            long sum = await Task.Run(() =>
+            {
+                long s = 0;
+                for (int i = 0; i < size_vector; i++) { s += vector[i]; }
+                return s;
+            });
+            return sum;
+        }
+        private async Task<string> getServerTime()
+        {
+            string serverTime = await Task.Run(() => DateTime.Now.ToString("HH:mm:ss"));
+            return serverTime;
+        }
+
+        private async void runAllAsync_Click(object sender, EventArgs e)
+        {
+            Task<long> sumTask = getVectorSum();
+            Task<string> timeTask = getServerTime();
+            Task<float> densityTask = getDensity();
+
+            await Task.WhenAll(sumTask, timeTask, densityTask);
+
+            sumTextBox.Text = sumTask.Result.ToString();
+            serverTimeTextBox.Text = timeTask.Result.ToString();
+            DensityTextBox.Text = densityTask.Result.ToString();
         }
     }
 }

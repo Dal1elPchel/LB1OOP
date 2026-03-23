@@ -60,7 +60,6 @@
             this.ServerTimeButton = new System.Windows.Forms.Button();
             this.sumTextBox = new System.Windows.Forms.TextBox();
             this.serverTimeTextBox = new System.Windows.Forms.TextBox();
-            this.runAllAsync = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -372,23 +371,12 @@
             this.serverTimeTextBox.Size = new System.Drawing.Size(167, 22);
             this.serverTimeTextBox.TabIndex = 30;
             // 
-            // runAllAsync
-            // 
-            this.runAllAsync.Location = new System.Drawing.Point(537, 548);
-            this.runAllAsync.Name = "runAllAsync";
-            this.runAllAsync.Size = new System.Drawing.Size(167, 45);
-            this.runAllAsync.TabIndex = 31;
-            this.runAllAsync.Text = "Запустить все async методы";
-            this.runAllAsync.UseVisualStyleBackColor = true;
-            this.runAllAsync.Click += new System.EventHandler(this.runAllAsync_Click);
-            // 
             // Main_Form
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1082, 674);
-            this.Controls.Add(this.runAllAsync);
             this.Controls.Add(this.serverTimeTextBox);
             this.Controls.Add(this.sumTextBox);
             this.Controls.Add(this.ServerTimeButton);
@@ -464,6 +452,5 @@
         private System.Windows.Forms.Button ServerTimeButton;
         private System.Windows.Forms.TextBox sumTextBox;
         private System.Windows.Forms.TextBox serverTimeTextBox;
-        private System.Windows.Forms.Button runAllAsync;
     }
 }

@@ -303,18 +303,5 @@ namespace LB1OOP
             string serverTime = await Task.Run(() => DateTime.Now.ToString("HH:mm:ss"));
             return serverTime;
         }
-
-        private async void runAllAsync_Click(object sender, EventArgs e)
-        {
-            Task<long> sumTask = getVectorSum();
-            Task<string> timeTask = getServerTime();
-            Task<float> densityTask = getDensity();
-
-            await Task.WhenAll(sumTask, timeTask, densityTask);
-
-            sumTextBox.Text = sumTask.Result.ToString();
-            serverTimeTextBox.Text = timeTask.Result.ToString();
-            DensityTextBox.Text = densityTask.Result.ToString();
-        }
     }
 }

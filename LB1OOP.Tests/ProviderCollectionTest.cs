@@ -58,7 +58,7 @@ namespace LB1OOP.Tests
             var provider = new Provider("МТС");
             bool eventRaised = false;
 
-            collection.providerAdded += (p, a) => eventRaised = true;
+            collection.ProviderAdded += (p, a) => eventRaised = true;
 
             // Act
             collection.AddProvider(provider);
@@ -76,7 +76,7 @@ namespace LB1OOP.Tests
             collection.AddProvider(provider);
             bool eventRaised = false;
 
-            collection.providerRemoved += (p, a) => eventRaised = true;
+            collection.ProviderRemoved += (p, a) => eventRaised = true;
 
             // Act
             collection.RemoveProvider(provider);

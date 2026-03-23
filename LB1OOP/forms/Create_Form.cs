@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LB1OOP.interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,7 +19,7 @@ namespace LB1OOP
         private const uint MB_OK = 0x00000000;
         private const uint MB_ICONERROR = 0x00000010;
 
-        public Provider CreatedProvider { get; private set; }
+        public IProvider CreatedProvider { get; private set; }
         public Create_Form()
         {
             InitializeComponent();
@@ -51,6 +52,10 @@ namespace LB1OOP
                 float tarifCoast = float.Parse(tarifCoastTextBox.Text.Trim());
 
                 CreatedProvider = new Provider(name, tarifCoast, userCount, speedLimit, area, contract, tarif);
+
+                if (checkBoxStaticIP.Checked) CreatedProvider = new StaticIpDecorators(CreatedProvider);
+                if (checkBoxRouterRent.Checked) CreatedProvider = new RouterRentDecorator(CreatedProvider);
+
                 this.DialogResult = DialogResult.OK;
                 this.Close();
             }

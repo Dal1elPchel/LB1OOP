@@ -46,56 +46,60 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Change_Form.cs">
+    <Compile Include="Decorators\ProviderDecorator.cs" />
+    <Compile Include="Decorators\RouterRentDecorator.cs" />
+    <Compile Include="Decorators\StaticIPDecoratorcs.cs" />
+    <Compile Include="forms\Change_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Change_Form.Designer.cs">
+    <Compile Include="forms\Change_Form.Designer.cs">
       <DependentUpon>Change_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="CustomDivideByZeroException.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="exceptions\CustomDivideByZeroException.cs" />
+    <Compile Include="forms\Form1.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
+    <Compile Include="forms\Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Create_Form.cs">
+    <Compile Include="forms\Create_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Create_Form.Designer.cs">
+    <Compile Include="forms\Create_Form.Designer.cs">
       <DependentUpon>Create_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="Main_Form.cs">
+    <Compile Include="forms\Main_Form.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Main_Form.Designer.cs">
+    <Compile Include="forms\Main_Form.Designer.cs">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </Compile>
-    <Compile Include="PerfomanceForm.cs">
+    <Compile Include="forms\PerfomanceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="PerfomanceForm.Designer.cs">
+    <Compile Include="forms\PerfomanceForm.Designer.cs">
       <DependentUpon>PerfomanceForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="PerfomanceTester.cs" />
+    <Compile Include="interfaces\IProvider.cs" />
+    <Compile Include="Testing\PerfomanceTester.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Provider.cs" />
-    <Compile Include="ProviderCollection.cs" />
-    <Compile Include="Validator.cs" />
-    <EmbeddedResource Include="Change_Form.resx">
+    <Compile Include="models\Provider.cs" />
+    <Compile Include="models\ProviderCollection.cs" />
+    <Compile Include="validation\Validator.cs" />
+    <EmbeddedResource Include="forms\Change_Form.resx">
       <DependentUpon>Change_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
+    <EmbeddedResource Include="forms\Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Create_Form.resx">
+    <EmbeddedResource Include="forms\Create_Form.resx">
       <DependentUpon>Create_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Main_Form.resx">
+    <EmbeddedResource Include="forms\Main_Form.resx">
       <DependentUpon>Main_Form.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="PerfomanceForm.resx">
+    <EmbeddedResource Include="forms\PerfomanceForm.resx">
       <DependentUpon>PerfomanceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -121,5 +125,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

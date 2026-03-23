@@ -65,7 +65,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(387, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Лабораторная работа № 2";
+            this.label1.Text = "Лабораторная работа № 4";
             // 
             // label2
             // 
@@ -93,7 +93,7 @@
             this.NameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.NameTextBox.Name = "NameTextBox";
             this.NameTextBox.ReadOnly = true;
-            this.NameTextBox.Size = new System.Drawing.Size(173, 22);
+            this.NameTextBox.Size = new System.Drawing.Size(234, 22);
             this.NameTextBox.TabIndex = 3;
             // 
             // userCountTextBox
@@ -102,7 +102,7 @@
             this.userCountTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.userCountTextBox.Name = "userCountTextBox";
             this.userCountTextBox.ReadOnly = true;
-            this.userCountTextBox.Size = new System.Drawing.Size(173, 22);
+            this.userCountTextBox.Size = new System.Drawing.Size(234, 22);
             this.userCountTextBox.TabIndex = 5;
             // 
             // userCountLabel
@@ -121,7 +121,7 @@
             this.speedLimitTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.speedLimitTextBox.Name = "speedLimitTextBox";
             this.speedLimitTextBox.ReadOnly = true;
-            this.speedLimitTextBox.Size = new System.Drawing.Size(172, 22);
+            this.speedLimitTextBox.Size = new System.Drawing.Size(233, 22);
             this.speedLimitTextBox.TabIndex = 7;
             // 
             // speedLimitLabel
@@ -141,7 +141,7 @@
             this.areaTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.areaTextBox.Name = "areaTextBox";
             this.areaTextBox.ReadOnly = true;
-            this.areaTextBox.Size = new System.Drawing.Size(172, 22);
+            this.areaTextBox.Size = new System.Drawing.Size(233, 22);
             this.areaTextBox.TabIndex = 9;
             // 
             // label5
@@ -160,7 +160,7 @@
             this.contractNumberTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.contractNumberTextBox.Name = "contractNumberTextBox";
             this.contractNumberTextBox.ReadOnly = true;
-            this.contractNumberTextBox.Size = new System.Drawing.Size(172, 22);
+            this.contractNumberTextBox.Size = new System.Drawing.Size(233, 22);
             this.contractNumberTextBox.TabIndex = 11;
             // 
             // label6
@@ -175,18 +175,19 @@
             // 
             // tarifNameTextBox
             // 
-            this.tarifNameTextBox.Location = new System.Drawing.Point(378, 305);
+            this.tarifNameTextBox.Location = new System.Drawing.Point(377, 402);
             this.tarifNameTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.tarifNameTextBox.Multiline = true;
             this.tarifNameTextBox.Name = "tarifNameTextBox";
             this.tarifNameTextBox.ReadOnly = true;
-            this.tarifNameTextBox.Size = new System.Drawing.Size(172, 22);
+            this.tarifNameTextBox.Size = new System.Drawing.Size(233, 22);
             this.tarifNameTextBox.TabIndex = 13;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label7.Location = new System.Drawing.Point(23, 305);
+            this.label7.Location = new System.Drawing.Point(23, 398);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(183, 25);
             this.label7.TabIndex = 12;
@@ -194,18 +195,18 @@
             // 
             // tarifCoastTextBox
             // 
-            this.tarifCoastTextBox.Location = new System.Drawing.Point(378, 348);
+            this.tarifCoastTextBox.Location = new System.Drawing.Point(378, 306);
             this.tarifCoastTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.tarifCoastTextBox.Name = "tarifCoastTextBox";
             this.tarifCoastTextBox.ReadOnly = true;
-            this.tarifCoastTextBox.Size = new System.Drawing.Size(172, 22);
+            this.tarifCoastTextBox.Size = new System.Drawing.Size(233, 22);
             this.tarifCoastTextBox.TabIndex = 15;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label8.Location = new System.Drawing.Point(23, 345);
+            this.label8.Location = new System.Drawing.Point(23, 302);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(258, 25);
             this.label8.TabIndex = 14;
@@ -253,10 +254,10 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxProviders.FormattingEnabled = true;
             this.listBoxProviders.ItemHeight = 16;
-            this.listBoxProviders.Location = new System.Drawing.Point(609, 39);
+            this.listBoxProviders.Location = new System.Drawing.Point(663, 39);
             this.listBoxProviders.Margin = new System.Windows.Forms.Padding(30);
             this.listBoxProviders.Name = "listBoxProviders";
-            this.listBoxProviders.Size = new System.Drawing.Size(403, 212);
+            this.listBoxProviders.Size = new System.Drawing.Size(404, 212);
             this.listBoxProviders.TabIndex = 19;
             this.listBoxProviders.SelectedIndexChanged += new System.EventHandler(this.listBoxProviders_SelectedIndexChanged);
             // 
@@ -300,25 +301,25 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.listBoxEvents.FormattingEnabled = true;
             this.listBoxEvents.ItemHeight = 16;
-            this.listBoxEvents.Location = new System.Drawing.Point(609, 398);
+            this.listBoxEvents.Location = new System.Drawing.Point(663, 398);
             this.listBoxEvents.Name = "listBoxEvents";
-            this.listBoxEvents.Size = new System.Drawing.Size(403, 212);
+            this.listBoxEvents.Size = new System.Drawing.Size(404, 212);
             this.listBoxEvents.TabIndex = 23;
             // 
             // UserCountHexTextBox
             // 
-            this.UserCountHexTextBox.Location = new System.Drawing.Point(378, 401);
+            this.UserCountHexTextBox.Location = new System.Drawing.Point(377, 352);
             this.UserCountHexTextBox.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.UserCountHexTextBox.Name = "UserCountHexTextBox";
             this.UserCountHexTextBox.ReadOnly = true;
-            this.UserCountHexTextBox.Size = new System.Drawing.Size(172, 22);
+            this.UserCountHexTextBox.Size = new System.Drawing.Size(233, 22);
             this.UserCountHexTextBox.TabIndex = 25;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(23, 398);
+            this.label3.Location = new System.Drawing.Point(23, 352);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(289, 25);
             this.label3.TabIndex = 24;
@@ -328,7 +329,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1035, 665);
+            this.ClientSize = new System.Drawing.Size(1090, 665);
             this.Controls.Add(this.UserCountHexTextBox);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.listBoxEvents);
@@ -357,7 +358,7 @@
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.MinimumSize = new System.Drawing.Size(1053, 712);
+            this.MinimumSize = new System.Drawing.Size(1108, 712);
             this.Name = "Main_Form";
             this.Text = "Основные сведения";
             this.ResumeLayout(false);

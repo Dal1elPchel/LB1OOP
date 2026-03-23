@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LB1OOP.interfaces;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -21,21 +22,21 @@ namespace LB1OOP
 
         private Change_Form change_Form;
 
-        private Provider _provider;
+        private IProvider _provider;
         private ProviderCollection _collection;
 
         public Main_Form()
         {
             InitializeComponent();
             _collection = new ProviderCollection();
-            _collection.providerAdded += (p, action) =>
+            _collection.ProviderAdded += (p, action) =>
             {
                 listBoxProviders.Items.Add(p.Name);
 
                 string log = $"[{DateTime.Now:HH:mm:ss}] {action}: {p.Name} (Тариф: {p.TarifName})";
                 listBoxEvents.Items.Add(log);
             };
-            _collection.providerRemoved += (p, action) =>
+            _collection.ProviderRemoved += (p, action) =>
             {
                 if (listBoxProviders.Items.Contains(p.Name))
                 {
@@ -76,22 +77,19 @@ namespace LB1OOP
                 MessageBox(this.Handle, "Выберите провайдера для изменения!", "Провайдер не выбран", MB_OK | MB_ICONERROR);
                 return;
             }
-            string oldName = _provider.Name;
+
             change_Form = new Change_Form(_provider);
 
             if (change_Form.ShowDialog() == DialogResult.OK)
             {
+                IProvider newProvider = change_Form.UpdatedProvider;
+
+                _collection.RemoveProvider(_provider);
+
+                _collection.AddProvider(newProvider);
+
+                _provider = newProvider;
                 DisplayProviderInfo();
-                if (_provider.Name != oldName)
-                {
-                    int index = listBoxProviders.Items.IndexOf(oldName);
-                    if (index != -1)
-                    {
-                        listBoxProviders.Items[index] = _provider.Name;
-                        string log = $"[{DateTime.Now:HH:mm:ss}] Изменено: {oldName} -> {_provider.Name}";
-                        listBoxEvents.Items.Add(log);
-                    }
-                }
             }
         }
 
@@ -143,7 +141,7 @@ namespace LB1OOP
                 DialogResult result = form.ShowDialog();
                 if (result == DialogResult.OK)
                 {
-                    Provider newProvider = form.CreatedProvider;
+                    IProvider newProvider = form.CreatedProvider;
                     if (newProvider != null)
                     {
                         _collection.AddProvider(newProvider);
@@ -158,7 +156,7 @@ namespace LB1OOP
         {
             try
             {
-                if (listBoxProviders.SelectedItems == null)
+                if (listBoxProviders.SelectedItem == null)
                 {
                     MessageBox(this.Handle, "Выберите провайдера для удаления!", "Ошибка удаления провайдера", MB_OK | MB_ICONERROR);
                     return;
@@ -178,6 +176,7 @@ namespace LB1OOP
             {
                 MessageBox(this.Handle, "Выберите провайдера для удаления!", "Ошибка удаления провайдера", MB_OK | MB_ICONERROR);
             }
+            
 
         }
         private void listBoxProviders_SelectedIndexChanged(object sender, EventArgs e)

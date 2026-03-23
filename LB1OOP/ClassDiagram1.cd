@@ -4,49 +4,79 @@
     <Position X="0.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAhAAAAAAAAAAAAAACAAAAAAAAABgAAEAABAAAAAAA=</HashCode>
-      <FileName>Validator.cs</FileName>
+      <FileName>validation\Validator.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LB1OOP.Provider">
-    <Position X="3.25" Y="0.5" Width="2.5" />
+    <Position X="0.5" Y="3.5" Width="2.5" />
     <TypeIdentifier>
       <HashCode>EAACIAAAAAQBRgAEgAAAAAQAAAAFAAAAAAAAQQEgABE=</HashCode>
-      <FileName>Provider.cs</FileName>
+      <FileName>models\Provider.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="LB1OOP.ProviderCollection">
-    <Position X="6.5" Y="0.5" Width="2.25" />
+    <Position X="3.5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
-      <HashCode>AAAAAAEAAAAAAAAAAAAAEAQAAAAA0IAAAghAAAAAAAA=</HashCode>
-      <FileName>ProviderCollection.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAIAEAQAgAAAkAAAAkBAAAAAAAA=</HashCode>
+      <FileName>models\ProviderCollection.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LB1OOP.PerfomanceTester">
-    <Position X="6.75" Y="4.5" Width="1.5" />
+    <Position X="3.5" Y="4.5" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAIAAAAAAAAAAAAAAAAIA=</HashCode>
-      <FileName>PerfomanceTester.cs</FileName>
+      <FileName>Testing\PerfomanceTester.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LB1OOP.TestResults">
-    <Position X="8.5" Y="4.5" Width="2.25" />
+    <Position X="3.5" Y="6.75" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAEAAAAAAAAAIAAgAQAAAAIAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>PerfomanceTester.cs</FileName>
+      <FileName>Testing\PerfomanceTester.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="LB1OOP.CustomDivideByZeroException">
-    <Position X="9.25" Y="2" Width="4" />
+    <Position X="6.25" Y="2" Width="4" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>CustomDivideByZeroException.cs</FileName>
+      <FileName>exceptions\CustomDivideByZeroException.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Delegate Name="LB1OOP.ProviderCollectionChangedEventHandler">
-    <Position X="9.25" Y="0.5" Width="3.25" />
+  <Class Name="LB1OOP.ProviderDecorator">
+    <Position X="6.5" Y="3.75" Width="1.75" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ProviderCollection.cs</FileName>
+      <HashCode>EAAGAAAAAAQAQAAEQAAAAAQAAAAFAAAAAAAAAQAAABA=</HashCode>
+      <FileName>Decorators\ProviderDecorator.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="LB1OOP.RouterRentDecorator">
+    <Position X="9" Y="3.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Decorators\RouterRentDecorator.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="LB1OOP.StaticIpDecorators">
+    <Position X="9" Y="6.25" Width="2" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABA=</HashCode>
+      <FileName>Decorators\StaticIPDecoratorcs.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="LB1OOP.interfaces.IProvider">
+    <Position X="11.25" Y="0.75" Width="2" />
+    <TypeIdentifier>
+      <HashCode>EAACAAAAAAQAQAAEAAAAAAQAAAAFAAAAAAAAAQAAABA=</HashCode>
+      <FileName>interfaces\IProvider.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Delegate Name="LB1OOP.ProviderCollectionChangedEventHandler">
+    <Position X="6.25" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAABAAIAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>models\ProviderCollection.cs</FileName>
     </TypeIdentifier>
   </Delegate>
   <Font Name="Segoe UI" Size="9" />

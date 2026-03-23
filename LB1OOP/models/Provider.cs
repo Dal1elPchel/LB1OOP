@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LB1OOP.interfaces;
+using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace LB1OOP
     /// <summary>
     /// Представляет интернет-провайдера с информацией о тарифном плане и абонентах.
     /// </summary>
-    public class Provider
+    public class Provider : IProvider
     {
         private int _userCount;
         private float _speedLimit;

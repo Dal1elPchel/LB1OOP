@@ -1,4 +1,6 @@
 ﻿using LB1OOP;
+using LB1OOP.Interfaces;
+using LB1OOP.Visitors;
 
 namespace LB1OOP.Tests
 {
@@ -14,7 +16,7 @@ namespace LB1OOP.Tests
         [TestMethod]
         public void Constructor()
         {
-            InternetProvider provider = new InternetProvider();
+            IProvider provider = new InternetProvider();
 
             Assert.AreEqual("Undefined", provider.Name);
             Assert.AreEqual(0, provider.UserCount);
@@ -31,7 +33,7 @@ namespace LB1OOP.Tests
         [TestMethod]
         public void Constructor_WithOneParam()
         {
-            InternetProvider provider = new InternetProvider("МТС");
+            IProvider provider = new InternetProvider("МТС");
 
             Assert.AreEqual("МТС", provider.Name);
         }
@@ -42,7 +44,7 @@ namespace LB1OOP.Tests
         [TestMethod]
         public void Constructor_WithAllParameters()
         {
-            InternetProvider provider = new InternetProvider(
+            IProvider provider = new InternetProvider(
                 name: "Ростелеком",
                 tarifCoast: 500,
                 userCount: 1000,
@@ -68,10 +70,11 @@ namespace LB1OOP.Tests
         [TestMethod]
         public void GetUserCountInHex()
         {
-            InternetProvider provider = new InternetProvider();
+            IProvider provider = new InternetProvider();
             provider.UserCount = 255;
-
-            string result = provider.GetUserCountInHex();
+            IProviderVisitor densityVisitor = new DensityVisitor();
+            densityVisitor.Visit(provider);
+            string result = densityVisitor.Result.ToString();
 
             Assert.AreEqual("FF", result);
         }
@@ -82,7 +85,7 @@ namespace LB1OOP.Tests
         [TestMethod]
         public void ToString_ReturnsName()
         {
-            InternetProvider provider = new InternetProvider("Мегафон");
+            IProvider provider = new InternetProvider("Мегафон");
 
             string result = provider.ToString();
             Assert.AreEqual("Мегафон", result);
@@ -96,7 +99,7 @@ namespace LB1OOP.Tests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void UserCount_NegativeValue_ThrowsException()
         {
-            InternetProvider provider = new InternetProvider();
+            IProvider provider = new InternetProvider();
             provider.UserCount = -1;
         }
 
@@ -108,7 +111,7 @@ namespace LB1OOP.Tests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void TarifCoast_NegativeValue_ThrowsException()
         {
-            InternetProvider provider = new InternetProvider();
+            IProvider provider = new InternetProvider();
             provider.TarifCoast = -10;
         }
 
@@ -120,7 +123,7 @@ namespace LB1OOP.Tests
         [ExpectedException(typeof(ArgumentException))]
         public void Name_EmptyString_ThrowsException()
         {
-            InternetProvider provider = new InternetProvider();
+            IProvider provider = new InternetProvider();
             provider.Name = "";
         }
 
@@ -132,7 +135,7 @@ namespace LB1OOP.Tests
         [ExpectedException(typeof(ArgumentException))]
         public void Name_TooShort_ThrowsException()
         {
-            InternetProvider provider = new InternetProvider();
+            IProvider provider = new InternetProvider();
             provider.Name = "A";
         }
     }

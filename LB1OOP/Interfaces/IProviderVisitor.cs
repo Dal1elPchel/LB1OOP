@@ -8,6 +8,7 @@ namespace LB1OOP.Interfaces
 {
     public interface IProviderVisitor
     {
+        float Result { get; }
         void Visit(IProvider provider);
     }
 }

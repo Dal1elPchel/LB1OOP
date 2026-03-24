@@ -1,3 +1,6 @@
+using LB1OOP.Interfaces;
+using LB1OOP.Visitors;
+
 namespace LB1OOP.Tests;
 
 /// <summary>
@@ -13,13 +16,15 @@ public class CustomDivideByZeroExceptionTests
     [TestMethod]
     public void CalculateUserDensity_AreaZero_ThrowsCustomException()
     {
-        InternetProvider provider = new InternetProvider("Тест");
+        IProvider provider = new InternetProvider("Тест");
         provider.Area = 0;
         provider.UserCount = 100;
 
         try
         {
-            provider.CalculateUserDensity();
+            IProviderVisitor visitor = new DensityVisitor();
+            visitor.Visit(provider);
+            string result = visitor.Result;
             Assert.Fail("Должно быть выброшено исключение");
         }
         catch (CustomDivideByZeroException ex)

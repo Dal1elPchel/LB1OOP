@@ -158,7 +158,7 @@ namespace LB1OOP
             {
                 DensityVisitor visitor = new DensityVisitor();
                 visitor.Visit(_provider);
-                float result = visitor.Result;
+                string result = visitor.Result;
                 MessageBox(this.Handle, $"Результат: {result:F2} абонентов/км²",
                     "Результат",
                     MB_OK | MB_ICONINFORMATION);

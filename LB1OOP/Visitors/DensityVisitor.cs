@@ -9,9 +9,9 @@ namespace LB1OOP.Visitors
 {
     public class DensityVisitor : IProviderVisitor
     {
-        private float _result;
+        private string _result;
 
-        public float Result {  get { return _result; } }
+        public string Result {  get { return _result; } }
 
         /// <summary>
         /// Вычисляет плотность абонентов на квадратный километр.
@@ -28,7 +28,7 @@ namespace LB1OOP.Visitors
                     $"Невозможно вычислить плотность абонентов: у провайдера {provider.Name} нет зоны покрытия");
             }
 
-            _result = provider.UserCount / provider.Area;
+            _result = (provider.UserCount / provider.Area).ToString();
         }
     }
 }

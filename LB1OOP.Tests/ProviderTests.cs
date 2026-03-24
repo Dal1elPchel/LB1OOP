@@ -18,13 +18,13 @@ namespace LB1OOP.Tests
         {
             IProvider provider = new InternetProvider();
 
-            Assert.AreEqual("Undefined", provider.Name);
+            Assert.AreEqual("Не указан", provider.Name);
             Assert.AreEqual(0, provider.UserCount);
             Assert.AreEqual(0, provider.SpeedLimit);
-            Assert.AreEqual(0, provider.Area);
+            Assert.AreEqual(100, provider.Area);
             Assert.AreEqual(0, provider.ContractNumber);
-            Assert.AreEqual("Undefined", provider.TarifName);
-            Assert.AreEqual(0, provider.TarifCoast);
+            Assert.AreEqual("Не указан", provider.TarifName);
+            Assert.AreEqual(100, provider.TarifCoast);
         }
 
         /// <summary>
@@ -72,9 +72,9 @@ namespace LB1OOP.Tests
         {
             IProvider provider = new InternetProvider();
             provider.UserCount = 255;
-            IProviderVisitor densityVisitor = new DensityVisitor();
-            densityVisitor.Visit(provider);
-            string result = densityVisitor.Result.ToString();
+            IProviderVisitor hexVisitor = new HexVisitor();
+            hexVisitor.Visit(provider);
+            string result = hexVisitor.Result;
 
             Assert.AreEqual("FF", result);
         }

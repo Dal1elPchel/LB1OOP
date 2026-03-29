@@ -46,39 +46,45 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppModel.cs" />
+    <Compile Include="Cntrollers\ChangeController.cs" />
+    <Compile Include="Cntrollers\CreateController.cs" />
+    <Compile Include="Cntrollers\Dispatcher.cs" />
+    <Compile Include="Cntrollers\MainController.cs" />
+    <Compile Include="Cntrollers\TesterController.cs" />
     <Compile Include="Factories\DefaultProviderFactory.cs" />
-    <Compile Include="Forms\Change_Form.cs">
+    <Compile Include="ViewForms\ChangeForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Change_Form.Designer.cs">
-      <DependentUpon>Change_Form.cs</DependentUpon>
+    <Compile Include="ViewForms\ChangeForm.Designer.cs">
+      <DependentUpon>ChangeForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Exceptions\CustomDivideByZeroException.cs" />
-    <Compile Include="Forms\TaskForm.cs">
+    <Compile Include="ViewForms\TaskForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\TaskForm.Designer.cs">
+    <Compile Include="ViewForms\TaskForm.Designer.cs">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\Create_Form.cs">
+    <Compile Include="ViewForms\CreateForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Create_Form.Designer.cs">
-      <DependentUpon>Create_Form.cs</DependentUpon>
+    <Compile Include="ViewForms\CreateForm.Designer.cs">
+      <DependentUpon>CreateForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IProviderCollection.cs" />
     <Compile Include="Interfaces\IProvider.cs" />
     <Compile Include="Interfaces\IProviderFactory.cs" />
-    <Compile Include="Forms\Main_Form.cs">
+    <Compile Include="ViewForms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\Main_Form.Designer.cs">
-      <DependentUpon>Main_Form.cs</DependentUpon>
+    <Compile Include="ViewForms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\PerfomanceForm.cs">
+    <Compile Include="ViewForms\PerfomanceForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\PerfomanceForm.Designer.cs">
+    <Compile Include="ViewForms\PerfomanceForm.Designer.cs">
       <DependentUpon>PerfomanceForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Interfaces\IProviderVisitor.cs" />
@@ -90,19 +96,19 @@
     <Compile Include="Validation\Validator.cs" />
     <Compile Include="Visitors\DensityVisitor.cs" />
     <Compile Include="Visitors\HexVisitor.cs" />
-    <EmbeddedResource Include="Forms\Change_Form.resx">
-      <DependentUpon>Change_Form.cs</DependentUpon>
+    <EmbeddedResource Include="ViewForms\ChangeForm.resx">
+      <DependentUpon>ChangeForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\TaskForm.resx">
+    <EmbeddedResource Include="ViewForms\TaskForm.resx">
       <DependentUpon>TaskForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Create_Form.resx">
-      <DependentUpon>Create_Form.cs</DependentUpon>
+    <EmbeddedResource Include="ViewForms\CreateForm.resx">
+      <DependentUpon>CreateForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\Main_Form.resx">
-      <DependentUpon>Main_Form.cs</DependentUpon>
+    <EmbeddedResource Include="ViewForms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\PerfomanceForm.resx">
+    <EmbeddedResource Include="ViewForms\PerfomanceForm.resx">
       <DependentUpon>PerfomanceForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -132,5 +138,6 @@
   <ItemGroup>
     <None Include="Resources\Снимок экрана 2026-03-13 150341.png" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

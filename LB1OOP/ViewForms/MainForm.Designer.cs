@@ -1,6 +1,6 @@
 ﻿namespace LB1OOP
 {
-    partial class Main_Form
+    partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Main_Form));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.NameLabel = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(387, 32);
             this.label1.TabIndex = 0;
-            this.label1.Text = "Лабораторная работа № 5";
+            this.label1.Text = "Лабораторная работа № 7";
             // 
             // label2
             // 
@@ -321,7 +321,7 @@
             this.label3.TabIndex = 24;
             this.label3.Text = "Кол-во пользователей (HEX):";
             // 
-            // Main_Form
+            // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -357,7 +357,7 @@
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximumSize = new System.Drawing.Size(1200, 900);
             this.MinimumSize = new System.Drawing.Size(980, 700);
-            this.Name = "Main_Form";
+            this.Name = "MainForm";
             this.Text = "Основные сведения";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -127,7 +127,6 @@ namespace LB1OOP
             }
         }
 
-        private static LinkedList<InternetProvider> _providerCount = new LinkedList<InternetProvider>();
 
         /// <summary>
         /// Инициализирует новый экземпляр класса <see cref="InternetProvider"/> со значениями по умолчанию.
@@ -141,8 +140,6 @@ namespace LB1OOP
             this._tarifName = "Не указан";
             this._tarifCoast = 100;
             this._name = "Не указан";
-
-            AddNewProvider(this);
         }
 
         /// <summary>
@@ -161,8 +158,6 @@ namespace LB1OOP
             this._contractNumber = 0;
             this._tarifName = "Не указан";
             this._tarifCoast = 100;
-
-            AddNewProvider(this);
         }
 
         /// <summary>
@@ -183,8 +178,6 @@ namespace LB1OOP
             this._area = 100;
             this._contractNumber = 0;
             this._tarifName = "Не указан";
-
-            AddNewProvider(this);
         }
 
         /// <summary>
@@ -217,8 +210,6 @@ namespace LB1OOP
             this._area = area;
             this._contractNumber = contractNumber;
             this._tarifName = tarifName;
-
-            AddNewProvider(this);
         }
 
         /// <summary>
@@ -236,12 +227,6 @@ namespace LB1OOP
         {
             return $"{this.Name}";
         }
-
-        /// <summary>
-        /// Добавляет провайдера в статический список всех созданных экземпляров.
-        /// </summary>
-        /// <param name="provider">Добавляемый провайдер.</param>
-        private static void AddNewProvider(InternetProvider provider) => _providerCount.AddLast(provider);
 
         public void Accept(IProviderVisitor visitor) { visitor.Visit(this); }
     }

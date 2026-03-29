@@ -16,6 +16,5 @@ namespace LB1OOP.Interfaces
         void AddProvider(IProvider provider);
         bool RemoveProvider(IProvider provider);
         IEnumerable<IProvider> GetAll();
-        List<IProvider> GetInternalList();
     }
 }

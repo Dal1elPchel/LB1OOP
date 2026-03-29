@@ -1,4 +1,7 @@
-﻿using System;
+﻿using LB1OOP.Cntrollers;
+using LB1OOP.Factories;
+using LB1OOP.Interfaces;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,7 +19,12 @@ namespace LB1OOP
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Hello_Form());
+
+            IProviderFactory _defaultFactory = new DefaultProviderFactory();
+            AppModel model = new AppModel(_defaultFactory);
+            Dispatcher dp = new Dispatcher(model);
+
+            dp.StartApplication();
         }
     }
 }

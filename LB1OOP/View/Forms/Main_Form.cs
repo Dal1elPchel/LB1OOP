@@ -1,5 +1,6 @@
 ﻿using LB1OOP.Factories;
 using LB1OOP.Interfaces;
+using LB1OOP.View.Interfaces;
 using LB1OOP.Visitors;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace LB1OOP
     /// <summary>
     /// Главная форма приложения для отображения и редактирования информации о провайдере.
     /// </summary>
-    public partial class Main_Form : Form
+    public partial class Main_Form : Form, IMainForm
     {
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
         private static extern int MessageBox(IntPtr hWnd, string lpText, string lpCaption, uint uType);
@@ -25,65 +26,148 @@ namespace LB1OOP
         private const uint MB_ICONERROR = 0x00000010;
         private const uint MB_ICONINFORMATION = 0x00000040;
 
-        private Create_Form create_Form;
-        private Change_Form change_Form;
+        public string ProviderName
+        {
+            get => NameTextBox.Text;
+            set => NameTextBox.Text = value;
+        }
+        public int UserCount
+        {
+            get => int.TryParse(userCountTextBox.Text, out var val) ? val : 0;
+            set => userCountTextBox.Text = value.ToString();
+        }
+        public int SpeedLimit
+        {
+            get => int.TryParse(speedLimitTextBox.Text, out var val) ? val : 0;
+            set => speedLimitTextBox.Text = value == 0 ? "Не задан" : value.ToString();
+        }
+        public double Area
+        {
+            get => double.TryParse(areaTextBox.Text, out var val) ? val : 0;
+            set => areaTextBox.Text = value.ToString();
+        }
+        public int ContractNumber
+        {
+            get => int.TryParse(contractNumberTextBox.Text, out var val) ? val : 0;
+            set => contractNumberTextBox.Text = value.ToString();
+        }
+        public string TarifName
+        {
+            get => tarifNameTextBox.Text;
+            set => tarifNameTextBox.Text = value;
+        }
 
-        public IProviderFactory _providerFactory;
-        private IProvider _provider;
-        private IProviderCollection _collection;
+        public decimal TarifCoast
+        {
+            get => decimal.TryParse(tarifCoastTextBox.Text, out var val) ? val : 0;
+            set => tarifCoastTextBox.Text = value.ToString();
+        }
+
+        public string UserCountHex
+        {
+            get => UserCountHextextBox.Text;
+            set => UserCountHextextBox.Text = value;
+        }
+
+        public string DensityResult
+        {
+            get => DensityTextBox.Text;
+            set => DensityTextBox.Text = value;
+        }
+
+        public long VectorSumResult
+        {
+            get => long.TryParse(sumTextBox.Text, out var val) ? val : 0;
+            set => sumTextBox.Text = value.ToString();
+        }
+
+        public string ServerTimeResult
+        {
+            get => serverTimeTextBox.Text;
+            set => serverTimeTextBox.Text = value;
+        }
+
+        public IEnumerable<string> ProviderNames
+        {
+            get => listBoxProviders.Items.Cast<string>();
+            set
+            {
+                listBoxProviders.Items.Clear();
+                foreach (var name in value)
+                    listBoxProviders.Items.Add(name);
+            }
+        }
+
+        public string SelectedProviderName
+        {
+            get => listBoxProviders.SelectedItem?.ToString();
+        }
+
+        public IEnumerable<string> EventLogs
+        {
+            get => listBoxEvents.Items.Cast<string>();
+            set
+            {
+                listBoxEvents.Items.Clear();
+                foreach (var log in value)
+                    listBoxEvents.Items.Add(log);
+            }
+        }
+
+        public event EventHandler prAdded;
+        public event EventHandler prDeleted;
+        public event EventHandler prChanged;
+        public event EventHandler prSelected;
+        public event EventHandler testException;
+        public event EventHandler runTester;
+        public event EventHandler calcVector;
+        public event EventHandler serverTime;
 
         public Main_Form()
         {
             InitializeComponent();
 
-            _providerFactory = new DefaultProviderFactory();
-            _collection = _providerFactory.CreateProviderCollection();
-
-            _collection.providerAdded += (p, message) =>
-            {
-                listBoxProviders.Items.Add(p.Name);
-
-                string log = $"[{DateTime.Now:HH:mm:ss}] {message}: {p.Name} (Тариф: {p.TarifName})";
-                listBoxEvents.Items.Add(log);
-            };
-
-            _collection.providerRemoved += (p, action) =>
-            {
-                if (listBoxProviders.Items.Contains(p.Name))
-                {
-                    listBoxProviders.Items.Remove(p.Name);
-                }
-
-                string log = $"[{DateTime.Now:HH:mm:ss}] {action}: {p.Name}";
-                listBoxEvents.Items.Add(log);
-                if (_provider == p)
-                {
-                    _provider = null;
-                }
-            };
-
-            _provider = _providerFactory.CreateProviderWithName("МТС");
-            _collection.AddProvider(_provider);
-
-            DisplayProviderInfo();
+            WireEvents();
         }
 
-        /// <summary>
-        /// Отображает информацию о провайдере в текстовых полях формы.
-        /// </summary>
-        private void DisplayProviderInfo()
+        private void WireEvents()
         {
-            NameTextBox.Text = _provider.Name.Trim();
-            userCountTextBox.Text = _provider.UserCount.ToString().Trim();
-            speedLimitTextBox.Text = _provider.SpeedLimit == 0 ? "Не задан" : _provider.SpeedLimit.ToString().Trim();
-            areaTextBox.Text = _provider.Area.ToString().Trim();
-            contractNumberTextBox.Text = _provider.ContractNumber.ToString().Trim();
-            tarifNameTextBox.Text = _provider.TarifName.ToString().Trim();
-            tarifCoastTextBox.Text = _provider.TarifCoast.ToString().Trim();
-            HexVisitor visitor = new HexVisitor();
-            visitor.Visit(_provider);
-            UserCountHextextBox.Text = visitor.Result.ToString().Trim();
+            add_button.Click += (s, e) => prAdded?.Invoke(s, e);
+            change_button.Click += (s, e) => prChanged?.Invoke(s, e);
+            remove_button.Click += (s, e) => prDeleted?.Invoke(s, e);
+            test_button.Click += (s, e) => runTester?.Invoke(s, e);
+            SumButton.Click += (s, e) => calcVector?.Invoke(s, e);
+            ServerTimeButton.Click += (s, e) => serverTime?.Invoke(s, e);
+            btnTestException.Click += (s, e) => testException?.Invoke(s, e);
         }
+
+        public void RefreshProviderList()
+        {
+            listBoxProviders.Refresh();
+        }
+
+        public void RefreshEventLog()
+        {
+            listBoxEvents.TopIndex = listBoxEvents.Items.Count - 1;
+            listBoxEvents.Refresh();
+        }
+
+        public void ClearProviderSelection()
+        {
+            listBoxProviders.ClearSelected();
+        }
+
+        void ShowMessage(string title, string message, bool isError = false)
+        {
+            MessageBox(this.Handle, title,
+                    message,
+                    MB_OK | MB_ICONERROR);
+        }
+        void UpdateProviderInfo()
+        {
+            Refresh();
+        }
+
 
         /// <summary>
         /// Обрабатывает нажатие кнопки изменения данных провайдера.
@@ -152,16 +236,12 @@ namespace LB1OOP
         /// </summary>
         /// <param name="sender">Источник события.</param>
         /// <param name="e">Объект <see cref="EventArgs"/>, содержащий данные события.</param>
-        private void btnTestException_Click_1(object sender, EventArgs e)
+        private async void btnTestException_Click_1(object sender, EventArgs e)
         {
             try
             {
-                DensityVisitor visitor = new DensityVisitor();
-                visitor.Visit(_provider);
-                string result = visitor.Result;
-                MessageBox(this.Handle, $"Результат: {result:F2} абонентов/км²",
-                    "Результат",
-                    MB_OK | MB_ICONINFORMATION);
+                float result = await getDensity();
+                DensityTextBox.Text = $"{result:F2} абонентов/км²";
 
             }
             catch (CustomDivideByZeroException ex)
@@ -200,7 +280,7 @@ namespace LB1OOP
         {
             try
             {
-                if (listBoxProviders.SelectedItems == null)
+                if (listBoxProviders.SelectedItem == null)
                 {
                     MessageBox(this.Handle, $"Выберите провайдера из списка для удаления!",
                     "Ошибка удаления",
@@ -229,7 +309,7 @@ namespace LB1OOP
                 MessageBox(this.Handle, $"Неизвестный тип ошибки!",
                     "Ошибка",
                     MB_OK | MB_ICONERROR);
-            }         
+            }
         }
         private void listBoxProviders_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -239,7 +319,7 @@ namespace LB1OOP
                 _provider = null;
                 return;
             }
-            
+
             string selectedName = listBoxProviders
                 .SelectedItem.ToString();
 
@@ -254,10 +334,58 @@ namespace LB1OOP
 
         private void test_button_Click(object sender, EventArgs e)
         {
-            using (var form = new PerfomanceForm()) 
+            using (var form = new PerfomanceForm())
             {
                 form.ShowDialog();
             }
+        }
+
+        private async void SumButton_Click(object sender, EventArgs e)
+        {
+            long sumTask = await getVectorSum();
+            sumTextBox.Text = sumTask.ToString();
+        }
+
+        private async void ServerTimeButton_Click(object sender, EventArgs e)
+        {
+            string serverTask = await getServerTime();
+            serverTimeTextBox.Text = serverTask;
+        }
+
+        private async Task<float> getDensity()
+        {
+            float result = await Task.Run(() =>
+            {
+                DensityVisitor visitor = new DensityVisitor();
+                visitor.Visit(_provider);
+                return visitor.Result;
+            });
+            return result;
+        }
+
+        private async Task<long> getVectorSum()
+        {
+            int size_vector = 10_000_000;
+            int[] vector = new int[size_vector];
+            Random rand = new Random();
+
+            for (int i = 0; i < size_vector; i++)
+            {
+                vector[i] = rand.Next();
+            }
+
+            long sum = await Task.Run(() =>
+            {
+                long s = 0;
+                for (int i = 0; i < size_vector; i++) { s += vector[i]; }
+                return s;
+            });
+            return sum;
+        }
+        private async Task<string> getServerTime()
+        {
+            string serverTime = await Task.Run(() => DateTime.Now.ToString("HH:mm:ss"));
+            return serverTime;
         }
     }
 }

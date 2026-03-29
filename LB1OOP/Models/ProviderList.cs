@@ -54,11 +54,6 @@ namespace LB1OOP
             return _providers;
         }
 
-        public List<IProvider> GetInternalList()
-        {
-            return _providers;
-        }
-
         public int Count => _providers.Count;
     }
 }
